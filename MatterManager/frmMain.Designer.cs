@@ -35,8 +35,9 @@
             this.来自会议ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.来自事件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.事务管理ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.牵头人toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             this.tsmSystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.新增事务ToolStripMenuItem,
             this.事务管理ToolStripMenuItem1,
+            this.牵头人toolStripMenuItem1,
             this.toolStripSeparator1,
             this.退出程序ToolStripMenuItem});
             this.tsmSystem.Name = "tsmSystem";
@@ -74,20 +76,20 @@
             // 来自公文ToolStripMenuItem
             // 
             this.来自公文ToolStripMenuItem.Name = "来自公文ToolStripMenuItem";
-            this.来自公文ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.来自公文ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.来自公文ToolStripMenuItem.Text = "来自公文";
             this.来自公文ToolStripMenuItem.Click += new System.EventHandler(this.来自公文ToolStripMenuItem_Click);
             // 
             // 来自会议ToolStripMenuItem
             // 
             this.来自会议ToolStripMenuItem.Name = "来自会议ToolStripMenuItem";
-            this.来自会议ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.来自会议ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.来自会议ToolStripMenuItem.Text = "来自会议";
             // 
             // 来自事件ToolStripMenuItem
             // 
             this.来自事件ToolStripMenuItem.Name = "来自事件ToolStripMenuItem";
-            this.来自事件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.来自事件ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.来自事件ToolStripMenuItem.Text = "来自事件";
             // 
             // 事务管理ToolStripMenuItem1
@@ -96,6 +98,11 @@
             this.事务管理ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.事务管理ToolStripMenuItem1.Text = "事务管理";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
             // 退出程序ToolStripMenuItem
             // 
             this.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem";
@@ -103,10 +110,12 @@
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
+            // 牵头人toolStripMenuItem1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.牵头人toolStripMenuItem1.Name = "牵头人toolStripMenuItem1";
+            this.牵头人toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.牵头人toolStripMenuItem1.Text = "牵头人";
+            this.牵头人toolStripMenuItem1.Click += new System.EventHandler(this.牵头人toolStripMenuItem1_Click);
             // 
             // frmMain
             // 
@@ -137,6 +146,7 @@
         private System.Windows.Forms.ToolStripMenuItem 事务管理ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 退出程序ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 牵头人toolStripMenuItem1;
     }
 }
 

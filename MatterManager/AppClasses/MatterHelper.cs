@@ -123,6 +123,7 @@ namespace MatterHelpers
                 leader = new Leadman(dr["name"].ToString(), dr["itspost"].ToString());
                 leaderList.Add(leader);
             }
+            dr.Close();
             return leaderList;
         }
 
@@ -166,6 +167,27 @@ namespace MatterHelpers
                     string name = leader.Name;
                     string post = leader.ItsPost;
                     string sql = "insert into tbLeadman(name,itspost) values('" + name + "','" + post + "')";
+                    OleDbHelper.ExecuteInt(sql);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        /// <summary>
+        /// 删除一个Leadman
+        /// </summary>
+        /// <param name="leader">要删除的leadman对象</param>
+        public static void DeleteLeadman(Leadman leader)
+        {
+            try
+            {
+                if (IsExist(leader))
+                {
+                    string name = leader.Name;
+                    string post = leader.ItsPost;
+                    string sql = "delete from tbLeadman where name='" + name + "' and itspost='" + post + "'";
                     OleDbHelper.ExecuteInt(sql);
                 }
             }

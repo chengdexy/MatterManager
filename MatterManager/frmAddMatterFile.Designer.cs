@@ -55,14 +55,14 @@
             this.lblFileNumber = new System.Windows.Forms.Label();
             this.txtFileNumber = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.txtFileTitle = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtRemind = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtRemind = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -323,6 +323,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "来自公文的督办事务";
             // 
+            // txtFileTitle
+            // 
+            this.txtFileTitle.Location = new System.Drawing.Point(101, 25);
+            this.txtFileTitle.Name = "txtFileTitle";
+            this.txtFileTitle.ReadOnly = true;
+            this.txtFileTitle.Size = new System.Drawing.Size(252, 21);
+            this.txtFileTitle.TabIndex = 21;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -331,14 +339,6 @@
             this.lblTitle.Size = new System.Drawing.Size(89, 12);
             this.lblTitle.TabIndex = 22;
             this.lblTitle.Text = "督办事务标题：";
-            // 
-            // txtFileTitle
-            // 
-            this.txtFileTitle.Location = new System.Drawing.Point(101, 25);
-            this.txtFileTitle.Name = "txtFileTitle";
-            this.txtFileTitle.ReadOnly = true;
-            this.txtFileTitle.Size = new System.Drawing.Size(252, 21);
-            this.txtFileTitle.TabIndex = 21;
             // 
             // groupBox3
             // 
@@ -359,31 +359,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "督办事务信息：";
             // 
-            // groupBox4
+            // label3
             // 
-            this.groupBox4.Controls.Add(this.dgvTodoItemList);
-            this.groupBox4.Location = new System.Drawing.Point(19, 171);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(468, 206);
-            this.groupBox4.TabIndex = 24;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "待办事项清单：";
-            // 
-            // txtRemind
-            // 
-            this.txtRemind.Location = new System.Drawing.Point(140, 115);
-            this.txtRemind.Name = "txtRemind";
-            this.txtRemind.Size = new System.Drawing.Size(76, 21);
-            this.txtRemind.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "督办频率：";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(222, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 12);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "天";
             // 
             // label2
             // 
@@ -394,14 +377,31 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "每";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 12);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "天";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(48, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "督办频率：";
+            // 
+            // txtRemind
+            // 
+            this.txtRemind.Location = new System.Drawing.Point(140, 115);
+            this.txtRemind.Name = "txtRemind";
+            this.txtRemind.Size = new System.Drawing.Size(76, 21);
+            this.txtRemind.TabIndex = 7;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvTodoItemList);
+            this.groupBox4.Location = new System.Drawing.Point(19, 171);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(468, 206);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "待办事项清单：";
             // 
             // frmAddMatterFile
             // 
@@ -419,6 +419,7 @@
             this.Name = "frmAddMatterFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新建来自公文的督办事务";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddMatterFile_FormClosed);
             this.Load += new System.EventHandler(this.frmAddMatterFile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).EndInit();
             this.groupBox1.ResumeLayout(false);

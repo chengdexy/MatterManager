@@ -177,5 +177,10 @@ namespace MatterManager
         {
             txtFileTitle.Text = txtTitle.Text;
         }
+
+        private void frmAddMatterFile_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

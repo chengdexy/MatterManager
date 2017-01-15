@@ -11,6 +11,8 @@ namespace DatabaseHelpers
 {
     static class OleDbHelper
     {
+        private static OleDbConnection cnn = new OleDbConnection();
+        private static OleDbCommand cmd = new OleDbCommand();
         /// <summary>
         /// 数据库连接字符串
         /// </summary>
@@ -20,35 +22,33 @@ namespace DatabaseHelpers
         /// 获得并打开一个数据库连接
         /// </summary>
         /// <returns>数据库连接对象</returns>
-        private static OleDbConnection getCnn()
+        private static void openCnn()
         {
-            try
+            if (cnn.State == ConnectionState.Closed)
             {
-                OleDbConnection cnn = new OleDbConnection(myConnectionString);
-                return cnn;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                cnn.ConnectionString = myConnectionString;
+                cmd.Connection = cnn;
+                try
+                {
+                    cnn.Open();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
         }
         /// <summary>
         /// 关闭并销毁一个数据库连接
         /// </summary>
         /// <param name="cnn">要关闭销毁的OleDbConnection对象</param>
-        private static void closeCnn(OleDbConnection cnn)
+        private static void closeCnn()
         {
-            try
+            if (cnn.State == ConnectionState.Open)
             {
-                if (cnn.State.ToString() == "Open")
-                {
-                    cnn.Close();
-                }
+                cnn.Close();
                 cnn.Dispose();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                cmd.Dispose();
             }
         }
         /// <summary>
@@ -62,15 +62,19 @@ namespace DatabaseHelpers
         {
             try
             {
-                OleDbConnection cnn = getCnn();
-                cnn.Open();
-                OleDbCommand cmd = new OleDbCommand(sqlStr, cnn);
+                openCnn();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sqlStr;
                 int result = cmd.ExecuteNonQuery();
                 return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                closeCnn();
             }
         }
         /// <summary>
@@ -80,18 +84,26 @@ namespace DatabaseHelpers
         /// <returns>OleDbDataReader对象</returns>
         public static OleDbDataReader ExecuteReader(string sqlStr)
         {
+            OleDbDataReader dr = null;
             try
             {
-                OleDbConnection cnn = getCnn();
-                cnn.Open();
-                OleDbCommand cmd = new OleDbCommand(sqlStr, cnn);
-                OleDbDataReader dr = cmd.ExecuteReader();
-                return dr;
+                openCnn();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sqlStr;
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception(e.Message);
+                try
+                {
+                    dr.Close();
+                    closeCnn();
+                }
+                catch
+                {
+                }
             }
+            return dr;
         }
         /// <summary>
         /// 执行一条sql统计查询,将查询结果第1行第1列的内容返回
@@ -102,15 +114,19 @@ namespace DatabaseHelpers
         {
             try
             {
-                OleDbConnection cnn = getCnn();
-                cnn.Open();
-                OleDbCommand cmd = new OleDbCommand(sqlStr, cnn);
+                openCnn();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = sqlStr;
                 object result = cmd.ExecuteScalar();
                 return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                closeCnn();
             }
         }
     }

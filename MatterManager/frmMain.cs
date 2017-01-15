@@ -29,5 +29,12 @@ namespace MatterManager
         {
             Environment.Exit(0);
         }
+
+        private void 牵头人toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmLeadmanManager f = new MatterManager.frmLeadmanManager();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
