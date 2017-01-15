@@ -18,13 +18,6 @@ namespace MatterManager
             InitializeComponent();
         }
 
-        private void 来自公文ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAddMatterFile f = new frmAddMatterFile();
-            f.MdiParent = this;
-            f.Show();
-        }
-
         private void 退出程序ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -33,6 +26,13 @@ namespace MatterManager
         private void 牵头人toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmLeadmanManager f = new MatterManager.frmLeadmanManager();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void 新增事务ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddMatterFile f = new MatterManager.frmAddMatterFile();
             f.MdiParent = this;
             f.Show();
         }
