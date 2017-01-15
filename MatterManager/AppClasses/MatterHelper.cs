@@ -11,6 +11,42 @@ namespace MatterHelpers
 {
     static class MatterHelper
     {
+        #region Matters
+
+        /// <summary>
+        /// 获取数据库中所有的matter信息
+        /// </summary>
+        /// <returns>数据库中所有的matter信息列表</returns>
+        public static List<matterFiles> getAllMatters()
+        {
+            OleDbDataReader dr = null;
+            List<matterFiles> list = new List<matterFiles>();
+            string sqlstr = "select * from tbMatter";
+            dr = OleDbHelper.ExecuteReader(sqlstr);
+            while (dr.Read())
+            {
+                matterFiles mf = new matterFiles();
+                mf.Id = Convert.ToInt32(dr["id"]);
+                mf.Title = dr["title"].ToString();
+                mf.Describe = dr["description"].ToString();
+                mf.BeginDate = Convert.ToDateTime(dr["beginDate"]);
+                mf.State = (MyStates)Convert.ToInt32(dr["state"]);
+                mf.HowManyHoursToRemind = Convert.ToInt32(dr["remind"]);
+                mf.FileNum = dr["fileNum"].ToString();
+                mf.FileAddr = dr["filePath"].ToString();
+                mf.Leader = new Leadman(dr["leadername"].ToString(), dr["leaderpost"].ToString());
+                list.Add(mf);
+            }
+            dr.Close();
+            for (int i = 0; i < list.Count; i++)
+            {
+                matterFiles mf = list[i];
+                mf.TodoItemList = getTodoList(mf.Id);
+                mf.HistoryRecord = getHistoryList(mf.Id);
+            }
+            return list;
+        }
+
         /// <summary>
         /// 向数据库中插入一条新的Matter记录
         /// 包括基本信息/TodoList/HistoryList/新的Leadman
@@ -27,49 +63,80 @@ namespace MatterHelpers
              * 6. 如果是File类,多存一个文号,和一个文件存放Path
              */
 
-            //try
-            //{
-            //获取信息
-            string title = mf.Title;
-            string description = mf.Describe;
-            DateTime beginDate = mf.BeginDate;
-            MyStates state = mf.State;
-            Leadman leadman = mf.Leader;
-            int remind = mf.HowManyHoursToRemind;
-            List<TodoItem> todoList = mf.TodoItemList;
-            List<SuperviseRecord> historyList = mf.HistoryRecord;
-            string fileNum = mf.FileNum;
-            string filePath = mf.FileAddr;
-            int thisMatterNumber;
-            object obj = OleDbHelper.ExecuteScaler("select max(id) from tbMatter");
-            if (obj != DBNull.Value)
+            try
             {
-                thisMatterNumber = Convert.ToInt32(obj) + 1;
+                //获取信息
+                string title = mf.Title;
+                string description = mf.Describe;
+                DateTime beginDate = mf.BeginDate;
+                int state = Convert.ToInt32(mf.State);
+                Leadman leadman = mf.Leader;
+                int remind = mf.HowManyHoursToRemind;
+                List<TodoItem> todoList = mf.TodoItemList;
+                List<SuperviseRecord> historyList = mf.HistoryRecord;
+                string fileNum = mf.FileNum;
+                string filePath = mf.FileAddr;
+                int thisMatterNumber;
+                object obj = OleDbHelper.ExecuteScaler("select max(id) from tbMatter");
+                if (obj != DBNull.Value)
+                {
+                    thisMatterNumber = Convert.ToInt32(obj) + 1;
+                }
+                else
+                {
+                    thisMatterNumber = 1;
+                }
+                //分别插入数据库中
+                //基本信息
+                string sqlStr = string.Format("insert into tbMatter(title,description,beginDate,state,remind,fileNum,filePath,leadername,leaderpost) values('{0}','{1}','{2}','{3}',{4},'{5}','{6}','{7}','{8}')",
+                    title, description, beginDate.ToString(), state.ToString(), remind, fileNum, filePath, leadman.Name, leadman.ItsPost);
+                OleDbHelper.ExecuteInt(sqlStr);
+                //TodoList
+                InsertTodoList(todoList, thisMatterNumber);
+                //HistoryList
+                InsertHistoryList(historyList, thisMatterNumber);
+                //Leadman
+                SaveLeadman(leadman);
             }
-            else
+            catch (Exception e)
             {
-                thisMatterNumber = 1;
+                //插入失败,抛出异常
+                //throw new Exception(e.Message);
+                throw e;
             }
-            //分别插入数据库中
-            //基本信息
-            string sqlStr = string.Format("insert into tbMatter(title,description,beginDate,state,remind,fileNum,filePath) values('{0}','{1}','{2}','{3}',{4},'{5}','{6}')",
-                title, description, beginDate.ToString(), state.ToString(), remind, fileNum, filePath);
-            OleDbHelper.ExecuteInt(sqlStr);
-            //TodoList
-            InsertTodoList(todoList, thisMatterNumber);
-            //HistoryList
-            InsertHistoryList(historyList, thisMatterNumber);
-            //Leadman
-            SaveLeadman(leadman);
-            //}
-            //catch (Exception e)
-            //{
-            //    //插入失败,抛出异常
-            //    //throw new Exception(e.Message);
-            //    throw e;
-            //}
 
         }
+
+
+
+        #endregion
+
+        #region TodoItems
+        /// <summary>
+        /// 获取指定id号的Matter所对应的TodoList
+        /// </summary>
+        /// <param name="id">Matter的id编号</param>
+        /// <returns>id所对应的TodoList</returns>
+        public static List<TodoItem> getTodoList(int id)
+        {
+            OleDbDataReader dr = null;
+            List<TodoItem> list = new List<TodoItem>();
+            string sqlStr = "select * from tbTodo where mfNum=" + id;
+            dr = OleDbHelper.ExecuteReader(sqlStr);
+            while (dr.Read())
+            {
+                TodoItem ti = new TodoItem(dr["content"].ToString());
+                ti.DoneDate = Convert.ToDateTime(dr["doneDate"]);
+                ti.DoneDescription = dr["doneDescription"].ToString();
+                ti.State = (MyStates)(Convert.ToInt32(dr["state"]));
+                ti.StopDate = Convert.ToDateTime(dr["stopDate"]);
+                ti.StopReason = dr["stopReason"].ToString();
+                list.Add(ti);
+            }
+            dr.Close();
+            return list;
+        }
+
         /// <summary>
         /// 将一个TodoList存入数据库中的tbTodo中
         /// </summary>
@@ -82,7 +149,7 @@ namespace MatterHelpers
                 string content = list[i].Content;
                 string done = list[i].DoneDate.ToString();
                 string doneDsp = list[i].DoneDescription;
-                string state = list[i].State.ToString();
+                string state = Convert.ToInt32(list[i].State).ToString();
                 string stop = list[i].StopDate.ToString();
                 string stopRsn = list[i].StopReason;
 
@@ -91,6 +158,31 @@ namespace MatterHelpers
                 OleDbHelper.ExecuteInt(sql);
             }
         }
+
+        #endregion
+
+        #region HistoryList
+        /// <summary>
+        /// 获取指定id的Matter对应的所有SuperviseRecord
+        /// </summary>
+        /// <param name="id">指定的id</param>
+        /// <returns>HistoryList</returns>
+        public static List<SuperviseRecord> getHistoryList(int id)
+        {
+            OleDbDataReader dr = null;
+            List<SuperviseRecord> list = new List<SuperviseRecord>();
+            string sqlStr = "select * from tbHistory where mfNum=" + id;
+            dr = OleDbHelper.ExecuteReader(sqlStr);
+            while (dr.Read())
+            {
+                DateTime connect = Convert.ToDateTime(dr["connect"]);
+                string result = dr["result"].ToString();
+                SuperviseRecord sr = new SuperviseRecord(connect, result);
+                list.Add(sr);
+            }
+            return list;
+        }
+
         /// <summary>
         /// 将一个HistoryList存入数据库中的tbHistory中
         /// </summary>
@@ -108,6 +200,10 @@ namespace MatterHelpers
             }
         }
 
+
+        #endregion
+
+        #region Leadmans
         /// <summary>
         /// 从数据库中获取所有已存在的Leadman对象信息,供UI层使用
         /// </summary>
@@ -196,5 +292,7 @@ namespace MatterHelpers
                 throw new Exception(e.Message);
             }
         }
+
+        #endregion
     }
 }

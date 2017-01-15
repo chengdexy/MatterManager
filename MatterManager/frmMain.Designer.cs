@@ -72,6 +72,7 @@
             this.事务管理ToolStripMenuItem1.Name = "事务管理ToolStripMenuItem1";
             this.事务管理ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.事务管理ToolStripMenuItem1.Text = "事务管理";
+            this.事务管理ToolStripMenuItem1.Click += new System.EventHandler(this.事务管理ToolStripMenuItem1_Click);
             // 
             // 牵头人toolStripMenuItem1
             // 

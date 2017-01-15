@@ -24,6 +24,20 @@ namespace MatterManagerClasses
          *6. 事件类型√
          */
 
+        //事项编号
+        private int _id;
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
         //事项名称
         private string _title;
         public string Title
@@ -155,6 +169,7 @@ namespace MatterManagerClasses
                 _kind = value;
             }
         }
+
 
 
 

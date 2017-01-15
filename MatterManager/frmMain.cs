@@ -36,5 +36,12 @@ namespace MatterManager
             f.MdiParent = this;
             f.Show();
         }
+
+        private void 事务管理ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMatterManager f = new frmMatterManager();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
