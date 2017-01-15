@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblFileTitle = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblBeginDate = new System.Windows.Forms.Label();
             this.dtpBeginDate = new System.Windows.Forms.DateTimePicker();
@@ -38,11 +38,12 @@
             this.btnUploadFile = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblTodoItemList = new System.Windows.Forms.Label();
             this.dgvTodoItemList = new System.Windows.Forms.DataGridView();
             this.cNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboLeadman = new System.Windows.Forms.ComboBox();
+            this.lblLeadman = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancelAndClear = new System.Windows.Forms.Button();
             this.btnAddToList = new System.Windows.Forms.Button();
@@ -53,33 +54,43 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblFileNumber = new System.Windows.Forms.Label();
             this.txtFileNumber = new System.Windows.Forms.TextBox();
-            this.lblLeadman = new System.Windows.Forms.Label();
-            this.cboLeadman = new System.Windows.Forms.ComboBox();
-            this.txtLeadmanPost = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.txtFileTitle = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtRemind = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblTitle
+            // lblFileTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(32, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(89, 12);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "公文文件标题：";
+            this.lblFileTitle.AutoSize = true;
+            this.lblFileTitle.Location = new System.Drawing.Point(6, 29);
+            this.lblFileTitle.Name = "lblFileTitle";
+            this.lblFileTitle.Size = new System.Drawing.Size(89, 12);
+            this.lblFileTitle.TabIndex = 1;
+            this.lblFileTitle.Text = "公文文件标题：";
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(127, 20);
+            this.txtTitle.Location = new System.Drawing.Point(119, 21);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(252, 21);
             this.txtTitle.TabIndex = 2;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // lblBeginDate
             // 
             this.lblBeginDate.AutoSize = true;
-            this.lblBeginDate.Location = new System.Drawing.Point(494, 20);
+            this.lblBeginDate.Location = new System.Drawing.Point(24, 48);
             this.lblBeginDate.Name = "lblBeginDate";
             this.lblBeginDate.Size = new System.Drawing.Size(89, 12);
             this.lblBeginDate.TabIndex = 3;
@@ -87,24 +98,24 @@
             // 
             // dtpBeginDate
             // 
-            this.dtpBeginDate.Location = new System.Drawing.Point(589, 20);
+            this.dtpBeginDate.Location = new System.Drawing.Point(119, 48);
             this.dtpBeginDate.Name = "dtpBeginDate";
-            this.dtpBeginDate.Size = new System.Drawing.Size(200, 21);
+            this.dtpBeginDate.Size = new System.Drawing.Size(250, 21);
             this.dtpBeginDate.TabIndex = 4;
             // 
             // lblUploadFile
             // 
             this.lblUploadFile.AutoSize = true;
-            this.lblUploadFile.Location = new System.Drawing.Point(32, 135);
+            this.lblUploadFile.Location = new System.Drawing.Point(30, 81);
             this.lblUploadFile.Name = "lblUploadFile";
-            this.lblUploadFile.Size = new System.Drawing.Size(101, 12);
+            this.lblUploadFile.Size = new System.Drawing.Size(65, 12);
             this.lblUploadFile.TabIndex = 5;
-            this.lblUploadFile.Text = "上传此公文文件：";
+            this.lblUploadFile.Text = "文件上传：";
             // 
             // lblPathOfUploaded
             // 
             this.lblPathOfUploaded.AutoSize = true;
-            this.lblPathOfUploaded.Location = new System.Drawing.Point(32, 161);
+            this.lblPathOfUploaded.Location = new System.Drawing.Point(101, 81);
             this.lblPathOfUploaded.Name = "lblPathOfUploaded";
             this.lblPathOfUploaded.Size = new System.Drawing.Size(173, 12);
             this.lblPathOfUploaded.TabIndex = 6;
@@ -112,7 +123,7 @@
             // 
             // btnUploadFile
             // 
-            this.btnUploadFile.Location = new System.Drawing.Point(127, 130);
+            this.btnUploadFile.Location = new System.Drawing.Point(344, 76);
             this.btnUploadFile.Name = "btnUploadFile";
             this.btnUploadFile.Size = new System.Drawing.Size(75, 23);
             this.btnUploadFile.TabIndex = 7;
@@ -123,7 +134,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(494, 68);
+            this.lblDescription.Location = new System.Drawing.Point(12, 75);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(101, 12);
             this.lblDescription.TabIndex = 8;
@@ -131,21 +142,12 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(589, 68);
+            this.txtDescription.Location = new System.Drawing.Point(119, 75);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescription.Size = new System.Drawing.Size(252, 115);
+            this.txtDescription.Size = new System.Drawing.Size(252, 36);
             this.txtDescription.TabIndex = 9;
-            // 
-            // lblTodoItemList
-            // 
-            this.lblTodoItemList.AutoSize = true;
-            this.lblTodoItemList.Location = new System.Drawing.Point(17, 201);
-            this.lblTodoItemList.Name = "lblTodoItemList";
-            this.lblTodoItemList.Size = new System.Drawing.Size(89, 12);
-            this.lblTodoItemList.TabIndex = 10;
-            this.lblTodoItemList.Text = "待办事项清单：";
             // 
             // dgvTodoItemList
             // 
@@ -155,14 +157,14 @@
             this.dgvTodoItemList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNumber,
             this.cContent});
-            this.dgvTodoItemList.Location = new System.Drawing.Point(112, 201);
+            this.dgvTodoItemList.Location = new System.Drawing.Point(6, 20);
             this.dgvTodoItemList.MultiSelect = false;
             this.dgvTodoItemList.Name = "dgvTodoItemList";
             this.dgvTodoItemList.ReadOnly = true;
             this.dgvTodoItemList.RowTemplate.Height = 23;
             this.dgvTodoItemList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTodoItemList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTodoItemList.Size = new System.Drawing.Size(341, 272);
+            this.dgvTodoItemList.Size = new System.Drawing.Size(456, 170);
             this.dgvTodoItemList.TabIndex = 11;
             // 
             // cNumber
@@ -179,23 +181,41 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtLeadmanPost);
             this.groupBox1.Controls.Add(this.cboLeadman);
             this.groupBox1.Controls.Add(this.lblLeadman);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnCancelAndClear);
             this.groupBox1.Controls.Add(this.btnAddToList);
             this.groupBox1.Controls.Add(this.txtNewItemContent);
-            this.groupBox1.Location = new System.Drawing.Point(460, 201);
+            this.groupBox1.Location = new System.Drawing.Point(504, 171);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(381, 272);
+            this.groupBox1.Size = new System.Drawing.Size(468, 206);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "新增待办事项：";
             // 
+            // cboLeadman
+            // 
+            this.cboLeadman.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboLeadman.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboLeadman.FormattingEnabled = true;
+            this.cboLeadman.Location = new System.Drawing.Point(125, 26);
+            this.cboLeadman.Name = "cboLeadman";
+            this.cboLeadman.Size = new System.Drawing.Size(102, 20);
+            this.cboLeadman.TabIndex = 5;
+            // 
+            // lblLeadman
+            // 
+            this.lblLeadman.AutoSize = true;
+            this.lblLeadman.Location = new System.Drawing.Point(6, 29);
+            this.lblLeadman.Name = "lblLeadman";
+            this.lblLeadman.Size = new System.Drawing.Size(113, 12);
+            this.lblLeadman.TabIndex = 4;
+            this.lblLeadman.Text = "选择或输入牵头人：";
+            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(143, 236);
+            this.btnDelete.Location = new System.Drawing.Point(254, 161);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 23);
             this.btnDelete.TabIndex = 3;
@@ -205,7 +225,7 @@
             // 
             // btnCancelAndClear
             // 
-            this.btnCancelAndClear.Location = new System.Drawing.Point(273, 236);
+            this.btnCancelAndClear.Location = new System.Drawing.Point(364, 161);
             this.btnCancelAndClear.Name = "btnCancelAndClear";
             this.btnCancelAndClear.Size = new System.Drawing.Size(102, 23);
             this.btnCancelAndClear.TabIndex = 2;
@@ -215,7 +235,7 @@
             // 
             // btnAddToList
             // 
-            this.btnAddToList.Location = new System.Drawing.Point(6, 236);
+            this.btnAddToList.Location = new System.Drawing.Point(139, 161);
             this.btnAddToList.Name = "btnAddToList";
             this.btnAddToList.Size = new System.Drawing.Size(109, 23);
             this.btnAddToList.TabIndex = 1;
@@ -228,12 +248,12 @@
             this.txtNewItemContent.Location = new System.Drawing.Point(6, 54);
             this.txtNewItemContent.Multiline = true;
             this.txtNewItemContent.Name = "txtNewItemContent";
-            this.txtNewItemContent.Size = new System.Drawing.Size(369, 176);
+            this.txtNewItemContent.Size = new System.Drawing.Size(456, 101);
             this.txtNewItemContent.TabIndex = 0;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(685, 587);
+            this.btnClear.Location = new System.Drawing.Point(767, 398);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 15;
@@ -243,7 +263,7 @@
             // 
             // btnJustSave
             // 
-            this.btnJustSave.Location = new System.Drawing.Point(604, 587);
+            this.btnJustSave.Location = new System.Drawing.Point(686, 398);
             this.btnJustSave.Name = "btnJustSave";
             this.btnJustSave.Size = new System.Drawing.Size(75, 23);
             this.btnJustSave.TabIndex = 16;
@@ -253,7 +273,7 @@
             // 
             // btnSaveAndExit
             // 
-            this.btnSaveAndExit.Location = new System.Drawing.Point(523, 587);
+            this.btnSaveAndExit.Location = new System.Drawing.Point(605, 398);
             this.btnSaveAndExit.Name = "btnSaveAndExit";
             this.btnSaveAndExit.Size = new System.Drawing.Size(75, 23);
             this.btnSaveAndExit.TabIndex = 17;
@@ -263,7 +283,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(766, 587);
+            this.btnCancel.Location = new System.Drawing.Point(848, 398);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 18;
@@ -274,7 +294,7 @@
             // lblFileNumber
             // 
             this.lblFileNumber.AutoSize = true;
-            this.lblFileNumber.Location = new System.Drawing.Point(32, 68);
+            this.lblFileNumber.Location = new System.Drawing.Point(30, 55);
             this.lblFileNumber.Name = "lblFileNumber";
             this.lblFileNumber.Size = new System.Drawing.Size(65, 12);
             this.lblFileNumber.TabIndex = 19;
@@ -282,60 +302,120 @@
             // 
             // txtFileNumber
             // 
-            this.txtFileNumber.Location = new System.Drawing.Point(127, 68);
+            this.txtFileNumber.Location = new System.Drawing.Point(101, 51);
             this.txtFileNumber.Name = "txtFileNumber";
             this.txtFileNumber.Size = new System.Drawing.Size(252, 21);
             this.txtFileNumber.TabIndex = 20;
             // 
-            // lblLeadman
+            // groupBox2
             // 
-            this.lblLeadman.AutoSize = true;
-            this.lblLeadman.Location = new System.Drawing.Point(6, 29);
-            this.lblLeadman.Name = "lblLeadman";
-            this.lblLeadman.Size = new System.Drawing.Size(113, 12);
-            this.lblLeadman.TabIndex = 4;
-            this.lblLeadman.Text = "选择或输入牵头人：";
+            this.groupBox2.Controls.Add(this.txtFileTitle);
+            this.groupBox2.Controls.Add(this.lblPathOfUploaded);
+            this.groupBox2.Controls.Add(this.txtFileNumber);
+            this.groupBox2.Controls.Add(this.lblUploadFile);
+            this.groupBox2.Controls.Add(this.lblFileNumber);
+            this.groupBox2.Controls.Add(this.btnUploadFile);
+            this.groupBox2.Controls.Add(this.lblFileTitle);
+            this.groupBox2.Location = new System.Drawing.Point(504, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(468, 153);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "来自公文的督办事务";
             // 
-            // cboLeadman
+            // lblTitle
             // 
-            this.cboLeadman.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cboLeadman.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboLeadman.FormattingEnabled = true;
-            this.cboLeadman.Location = new System.Drawing.Point(125, 26);
-            this.cboLeadman.Name = "cboLeadman";
-            this.cboLeadman.Size = new System.Drawing.Size(102, 20);
-            this.cboLeadman.TabIndex = 5;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(24, 21);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(89, 12);
+            this.lblTitle.TabIndex = 22;
+            this.lblTitle.Text = "督办事务标题：";
             // 
-            // txtLeadmanPost
+            // txtFileTitle
             // 
-            this.txtLeadmanPost.Location = new System.Drawing.Point(229, 25);
-            this.txtLeadmanPost.Name = "txtLeadmanPost";
-            this.txtLeadmanPost.Size = new System.Drawing.Size(100, 21);
-            this.txtLeadmanPost.TabIndex = 6;
+            this.txtFileTitle.Location = new System.Drawing.Point(101, 25);
+            this.txtFileTitle.Name = "txtFileTitle";
+            this.txtFileTitle.ReadOnly = true;
+            this.txtFileTitle.Size = new System.Drawing.Size(252, 21);
+            this.txtFileTitle.TabIndex = 21;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.txtRemind);
+            this.groupBox3.Controls.Add(this.txtTitle);
+            this.groupBox3.Controls.Add(this.lblTitle);
+            this.groupBox3.Controls.Add(this.lblBeginDate);
+            this.groupBox3.Controls.Add(this.dtpBeginDate);
+            this.groupBox3.Controls.Add(this.lblDescription);
+            this.groupBox3.Controls.Add(this.txtDescription);
+            this.groupBox3.Location = new System.Drawing.Point(19, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(468, 153);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "督办事务信息：";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvTodoItemList);
+            this.groupBox4.Location = new System.Drawing.Point(19, 171);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(468, 206);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "待办事项清单：";
+            // 
+            // txtRemind
+            // 
+            this.txtRemind.Location = new System.Drawing.Point(140, 115);
+            this.txtRemind.Name = "txtRemind";
+            this.txtRemind.Size = new System.Drawing.Size(76, 21);
+            this.txtRemind.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(48, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "督办频率：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(117, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "每";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(222, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 12);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "天";
             // 
             // frmAddMatterFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 662);
-            this.Controls.Add(this.txtFileNumber);
-            this.Controls.Add(this.lblFileNumber);
+            this.ClientSize = new System.Drawing.Size(984, 439);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveAndExit);
             this.Controls.Add(this.btnJustSave);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvTodoItemList);
-            this.Controls.Add(this.lblTodoItemList);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.btnUploadFile);
-            this.Controls.Add(this.lblPathOfUploaded);
-            this.Controls.Add(this.lblUploadFile);
-            this.Controls.Add(this.dtpBeginDate);
-            this.Controls.Add(this.lblBeginDate);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.lblTitle);
             this.Name = "frmAddMatterFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新建来自公文的督办事务";
@@ -343,14 +423,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblFileTitle;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblBeginDate;
         private System.Windows.Forms.DateTimePicker dtpBeginDate;
@@ -360,7 +444,6 @@
         private System.Windows.Forms.Button btnUploadFile;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblTodoItemList;
         private System.Windows.Forms.DataGridView dgvTodoItemList;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn cContent;
@@ -377,6 +460,14 @@
         private System.Windows.Forms.TextBox txtFileNumber;
         private System.Windows.Forms.ComboBox cboLeadman;
         private System.Windows.Forms.Label lblLeadman;
-        private System.Windows.Forms.TextBox txtLeadmanPost;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.TextBox txtRemind;
+        private System.Windows.Forms.TextBox txtFileTitle;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

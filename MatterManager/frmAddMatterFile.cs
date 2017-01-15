@@ -114,6 +114,17 @@ namespace MatterManager
                 txtFileNumber.Focus();
                 return false;
             }
+            //提醒间隔
+            if (!String.IsNullOrEmpty(txtRemind.Text))
+            {
+                mf.HowManyHoursToRemind = Convert.ToInt32(txtRemind.Text) * 24;
+            }
+            else
+            {
+                MessageBox.Show("请输入督办频率!");
+                txtRemind.Focus();
+                return false;
+            }
             //开始日期
             mf.BeginDate = dtpBeginDate.Value;
             //牵头人
@@ -141,7 +152,6 @@ namespace MatterManager
             }
             //调用MatterHelper的SaveMatterToDatabase方法
             MatterHelper.InsertMatter(mf);
-            MessageBox.Show("调用MatterHelper的SaveMatterToDatabase方法");
             return true;
         }
 
@@ -163,9 +173,9 @@ namespace MatterManager
             }
         }
 
-        private void cboLeadman_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtTitle_TextChanged(object sender, EventArgs e)
         {
-
+            txtFileTitle.Text = txtTitle.Text;
         }
     }
 }
