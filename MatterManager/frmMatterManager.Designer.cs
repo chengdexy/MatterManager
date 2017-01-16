@@ -34,11 +34,18 @@
             this.dgvTodoList = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvHistoryList = new System.Windows.Forms.DataGridView();
+            this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.开始日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matterID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -56,14 +63,14 @@
             this.编号,
             this.标题,
             this.开始日期,
-            this.状态,
-            this.matterID});
+            this.状态});
             this.dgvMatterList.Location = new System.Drawing.Point(6, 20);
             this.dgvMatterList.Name = "dgvMatterList";
             this.dgvMatterList.ReadOnly = true;
             this.dgvMatterList.RowTemplate.Height = 23;
             this.dgvMatterList.Size = new System.Drawing.Size(663, 147);
             this.dgvMatterList.TabIndex = 0;
+            this.dgvMatterList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatterList_CellClick);
             // 
             // groupBox1
             // 
@@ -87,9 +94,17 @@
             // 
             // dgvTodoList
             // 
+            this.dgvTodoList.AllowUserToAddRows = false;
+            this.dgvTodoList.AllowUserToDeleteRows = false;
             this.dgvTodoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.todo编号,
+            this.内容,
+            this.todo状态,
+            this.mfNum});
             this.dgvTodoList.Location = new System.Drawing.Point(6, 20);
             this.dgvTodoList.Name = "dgvTodoList";
+            this.dgvTodoList.ReadOnly = true;
             this.dgvTodoList.RowTemplate.Height = 23;
             this.dgvTodoList.Size = new System.Drawing.Size(663, 147);
             this.dgvTodoList.TabIndex = 0;
@@ -106,12 +121,45 @@
             // 
             // dgvHistoryList
             // 
+            this.dgvHistoryList.AllowUserToAddRows = false;
+            this.dgvHistoryList.AllowUserToDeleteRows = false;
             this.dgvHistoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHistoryList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.history编号,
+            this.联系日期,
+            this.反馈内容,
+            this.history_mfNum});
             this.dgvHistoryList.Location = new System.Drawing.Point(3, 17);
             this.dgvHistoryList.Name = "dgvHistoryList";
+            this.dgvHistoryList.ReadOnly = true;
             this.dgvHistoryList.RowTemplate.Height = 23;
             this.dgvHistoryList.Size = new System.Drawing.Size(663, 147);
             this.dgvHistoryList.TabIndex = 0;
+            // 
+            // todo编号
+            // 
+            this.todo编号.HeaderText = "编号";
+            this.todo编号.Name = "todo编号";
+            this.todo编号.ReadOnly = true;
+            // 
+            // 内容
+            // 
+            this.内容.HeaderText = "内容";
+            this.内容.Name = "内容";
+            this.内容.ReadOnly = true;
+            // 
+            // todo状态
+            // 
+            this.todo状态.HeaderText = "状态";
+            this.todo状态.Name = "todo状态";
+            this.todo状态.ReadOnly = true;
+            // 
+            // mfNum
+            // 
+            this.mfNum.HeaderText = "mfNum";
+            this.mfNum.Name = "mfNum";
+            this.mfNum.ReadOnly = true;
+            this.mfNum.Visible = false;
             // 
             // 编号
             // 
@@ -137,11 +185,30 @@
             this.状态.Name = "状态";
             this.状态.ReadOnly = true;
             // 
-            // matterID
+            // history编号
             // 
-            this.matterID.HeaderText = "matterID";
-            this.matterID.Name = "matterID";
-            this.matterID.ReadOnly = true;
+            this.history编号.HeaderText = "编号";
+            this.history编号.Name = "history编号";
+            this.history编号.ReadOnly = true;
+            // 
+            // 联系日期
+            // 
+            this.联系日期.HeaderText = "联系日期";
+            this.联系日期.Name = "联系日期";
+            this.联系日期.ReadOnly = true;
+            // 
+            // 反馈内容
+            // 
+            this.反馈内容.HeaderText = "反馈内容";
+            this.反馈内容.Name = "反馈内容";
+            this.反馈内容.ReadOnly = true;
+            // 
+            // history_mfNum
+            // 
+            this.history_mfNum.HeaderText = "history_mfNum";
+            this.history_mfNum.Name = "history_mfNum";
+            this.history_mfNum.ReadOnly = true;
+            this.history_mfNum.Visible = false;
             // 
             // frmMatterManager
             // 
@@ -152,7 +219,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmMatterManager";
-            this.Text = "frmMatterManager";
+            this.Text = "督办事务管理：";
             this.Load += new System.EventHandler(this.frmMatterManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -176,6 +243,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 标题;
         private System.Windows.Forms.DataGridViewTextBoxColumn 开始日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matterID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn todo编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn todo状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mfNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn history编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 联系日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 反馈内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn history_mfNum;
     }
 }
