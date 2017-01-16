@@ -46,6 +46,9 @@
             this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewMatter = new System.Windows.Forms.Button();
+            this.btnDelMatter = new System.Windows.Forms.Button();
+            this.btnEditMatter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,16 +71,20 @@
             this.dgvMatterList.Name = "dgvMatterList";
             this.dgvMatterList.ReadOnly = true;
             this.dgvMatterList.RowTemplate.Height = 23;
+            this.dgvMatterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMatterList.Size = new System.Drawing.Size(663, 147);
             this.dgvMatterList.TabIndex = 0;
             this.dgvMatterList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatterList_CellClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEditMatter);
+            this.groupBox1.Controls.Add(this.btnDelMatter);
+            this.groupBox1.Controls.Add(this.btnNewMatter);
             this.groupBox1.Controls.Add(this.dgvMatterList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(675, 180);
+            this.groupBox1.Size = new System.Drawing.Size(802, 180);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "督办事务列表：";
@@ -106,6 +113,7 @@
             this.dgvTodoList.Name = "dgvTodoList";
             this.dgvTodoList.ReadOnly = true;
             this.dgvTodoList.RowTemplate.Height = 23;
+            this.dgvTodoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTodoList.Size = new System.Drawing.Size(663, 147);
             this.dgvTodoList.TabIndex = 0;
             // 
@@ -133,6 +141,7 @@
             this.dgvHistoryList.Name = "dgvHistoryList";
             this.dgvHistoryList.ReadOnly = true;
             this.dgvHistoryList.RowTemplate.Height = 23;
+            this.dgvHistoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistoryList.Size = new System.Drawing.Size(663, 147);
             this.dgvHistoryList.TabIndex = 0;
             // 
@@ -210,6 +219,35 @@
             this.history_mfNum.ReadOnly = true;
             this.history_mfNum.Visible = false;
             // 
+            // btnNewMatter
+            // 
+            this.btnNewMatter.Location = new System.Drawing.Point(675, 20);
+            this.btnNewMatter.Name = "btnNewMatter";
+            this.btnNewMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnNewMatter.TabIndex = 1;
+            this.btnNewMatter.Text = "新增事务";
+            this.btnNewMatter.UseVisualStyleBackColor = true;
+            this.btnNewMatter.Click += new System.EventHandler(this.btnNewMatter_Click);
+            // 
+            // btnDelMatter
+            // 
+            this.btnDelMatter.Location = new System.Drawing.Point(675, 49);
+            this.btnDelMatter.Name = "btnDelMatter";
+            this.btnDelMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnDelMatter.TabIndex = 2;
+            this.btnDelMatter.Text = "删除选中";
+            this.btnDelMatter.UseVisualStyleBackColor = true;
+            this.btnDelMatter.Click += new System.EventHandler(this.btnDelMatter_Click);
+            // 
+            // btnEditMatter
+            // 
+            this.btnEditMatter.Location = new System.Drawing.Point(675, 78);
+            this.btnEditMatter.Name = "btnEditMatter";
+            this.btnEditMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnEditMatter.TabIndex = 4;
+            this.btnEditMatter.Text = "查看详情";
+            this.btnEditMatter.UseVisualStyleBackColor = true;
+            // 
             // frmMatterManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -251,5 +289,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 反馈内容;
         private System.Windows.Forms.DataGridViewTextBoxColumn history_mfNum;
+        private System.Windows.Forms.Button btnNewMatter;
+        private System.Windows.Forms.Button btnEditMatter;
+        private System.Windows.Forms.Button btnDelMatter;
     }
 }

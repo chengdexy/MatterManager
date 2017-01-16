@@ -85,25 +85,25 @@ namespace DatabaseHelpers
         public static OleDbDataReader ExecuteReader(string sqlStr)
         {
             OleDbDataReader dr = null;
-            try
-            {
+            //try
+            //{
                 openCnn();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sqlStr;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            }
-            catch
-            {
-                try
-                {
-                    dr.Close();
-                    closeCnn();
-                }
-                catch (Exception e)
-                {
-                    throw new Exception(e.Message);
-                }
-            }
+            //}
+            //catch
+            //{
+            //    try
+            //    {
+            //        dr.Close();
+            //        closeCnn();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        throw new Exception(e.Message);
+            //    }
+            //}
             return dr;
         }
         /// <summary>

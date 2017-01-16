@@ -43,6 +43,11 @@ namespace MatterManager
                 string state = mf.State.ToString();
                 dgvMatterList.Rows.Add(i + 1, title, begin, state, id);
             }
+            if (dgvMatterList.Rows.Count != 0)
+            {
+                refreshTodoList(0);
+                refreshHistoryList(0);
+            }
         }
 
         private void dgvMatterList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,6 +91,23 @@ namespace MatterManager
                 string result = srList[i].Result;
 
                 dgvHistoryList.Rows.Add(i + 1, connect, result, mfNum);
+            }
+        }
+
+        private void btnNewMatter_Click(object sender, EventArgs e)
+        {
+            frmAddMatterFile f = new frmAddMatterFile();
+            f.ShowDialog();
+            refreshMatterList();
+        }
+
+        private void btnDelMatter_Click(object sender, EventArgs e)
+        {
+            matterFiles mf = mfList[dgvMatterList.Rows[0].Index];
+            if (MessageBox.Show("确定要删除这件督办事务吗?操作不可逆.", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                MessageBox.Show(MatterHelper.DeleteMatter(mf), "结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refreshMatterList();
             }
         }
     }

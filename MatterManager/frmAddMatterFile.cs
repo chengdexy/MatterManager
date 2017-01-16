@@ -104,16 +104,7 @@ namespace MatterManager
                 return false;
             }
             //公文文号
-            if (!String.IsNullOrEmpty(txtFileNumber.Text))
-            {
-                mf.FileNum = txtFileNumber.Text;
-            }
-            else
-            {
-                MessageBox.Show("请输入公文文号!");
-                txtFileNumber.Focus();
-                return false;
-            }
+            mf.FileNum = txtFileNumber.Text;
             //提醒间隔
             if (!String.IsNullOrEmpty(txtRemind.Text))
             {
@@ -128,17 +119,47 @@ namespace MatterManager
             //开始日期
             mf.BeginDate = dtpBeginDate.Value;
             //牵头人
-            string leaderName = cboLeadman.Text.Split(':')[0].Trim();
-            string leaderPost = cboLeadman.Text.Split(':')[1].Trim();
-            mf.Leader = new Leadman(leaderName, leaderPost);
+
+            if (!string.IsNullOrEmpty(cboLeadman.Text))
+            {
+                string[] splited = cboLeadman.Text.Split(':');
+                if (splited.Length == 2)
+                {
+                    string leaderName = cboLeadman.Text.Split(':')[0].Trim();
+                    string leaderPost = cboLeadman.Text.Split(':')[1].Trim();
+                    mf.Leader = new Leadman(leaderName, leaderPost);
+                }
+                else
+                {
+                    MessageBox.Show("牵头人格式错误!\n正确格式为\"牵头人姓名:牵头人职务\"(冒号为英文半角)");
+                    cboLeadman.Text = "";
+                    cboLeadman.Focus();
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择或输入牵头人信息!\n格式为\"牵头人姓名:牵头人职务\"(冒号为英文半角)");
+                cboLeadman.Focus();
+                return false;
+            }
             //事务描述(备注)
             mf.Describe = txtDescription.Text;
             //文件上传路径
             string uploadPath = ofdUploadFile.FileName;
             //待办事项清单
-            for (int i = 0; i < dgvTodoItemList.RowCount; i++)
+            if (dgvTodoItemList.RowCount != 0)
             {
-                mf.TodoItemList.Add(new TodoItem(dgvTodoItemList.Rows[i].Cells[1].Value.ToString()));
+                for (int i = 0; i < dgvTodoItemList.RowCount; i++)
+                {
+                    mf.TodoItemList.Add(new TodoItem(dgvTodoItemList.Rows[i].Cells[1].Value.ToString()));
+                }
+            }
+            else
+            {
+                MessageBox.Show("督办事务中应至少包含一条待办事项!");
+                txtNewItemContent.Focus();
+                return false;
             }
             //将文件保存
             if (!String.IsNullOrEmpty(uploadPath))
@@ -150,7 +171,7 @@ namespace MatterManager
             {
                 mf.FileAddr = "";
             }
-            //调用MatterHelper的SaveMatterToDatabase方法
+            //向数据库中新增一组Matter
             MatterHelper.InsertMatter(mf);
             return true;
         }

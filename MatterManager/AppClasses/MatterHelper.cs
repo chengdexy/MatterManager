@@ -6,12 +6,46 @@ using System.Threading.Tasks;
 using MatterManagerClasses;
 using DatabaseHelpers;
 using System.Data.OleDb;
+using System.IO;
 
 namespace MatterHelpers
 {
     static class MatterHelper
     {
+        public static DateTime defaultDate = DateTime.MinValue;
+
         #region Matters
+
+        public static string DeleteMatter(matterFiles mf)
+        {
+            string result = "删除成功完成!";
+            //检查todolist是否包含未办结项目
+            List<TodoItem> todoList = mf.TodoItemList;
+            if (todoList.Count != getCountNotDoingFromTodoList(todoList))
+            {
+                result = "这件督办事务中包含正在进行中的待办事项,无法删除!";
+                return result;
+            }
+            try
+            {
+                //删除数据库中相关todoitem
+                DeleteTodoList(mf.Id);
+                //删除数据库中相关history
+                DeleteHistoryList(mf.Id);
+                //删除对应文件
+                mf.deleteFile();
+                //删除数据库中此matter数据
+                string sql = "delete from tbMatter where id=" + mf.Id;
+                OleDbHelper.ExecuteInt(sql);
+            }
+            catch
+            {
+                result = "删除失败,请检查数据库连接状况及相关文件是否被占用.";
+                return result;
+            }
+            //返回删除任务执行结果
+            return result;
+        }
 
         /// <summary>
         /// 获取数据库中所有的matter信息
@@ -158,6 +192,40 @@ namespace MatterHelpers
                 OleDbHelper.ExecuteInt(sql);
             }
         }
+        /// <summary>
+        /// 获取指定TodoList中不在办理中的项目个数
+        /// </summary>
+        /// <param name="list">指定的TodoList</param>
+        /// <returns>办结数+中止数</returns>
+        public static int getCountNotDoingFromTodoList(List<TodoItem> list)
+        {
+            int doneCount = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].State != MyStates.Doing)
+                {
+                    doneCount++;
+                }
+            }
+            return doneCount;
+        }
+        /// <summary>
+        /// 从数据库中删除指定id的matter所包含的todolist信息
+        /// </summary>
+        /// <param name="mfNum">待操作的matter的id</param>
+        public static void DeleteTodoList(int mfNum)
+        {
+            try
+            {
+                string sql = "delete from tbTodo where mfNum=" + mfNum;
+                OleDbHelper.ExecuteInt(sql);
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
 
         #endregion
 
@@ -180,6 +248,7 @@ namespace MatterHelpers
                 SuperviseRecord sr = new SuperviseRecord(connect, result);
                 list.Add(sr);
             }
+            dr.Close();
             return list;
         }
 
@@ -197,6 +266,22 @@ namespace MatterHelpers
 
                 string sql = string.Format("insert into tbHistory(connect,result,mfNum) values('{0}','{1}',{2})", connect, result, mfNum);
                 OleDbHelper.ExecuteInt(sql);
+            }
+        }
+        /// <summary>
+        /// 从数据库中删除指定id的matter所包含的historylist
+        /// </summary>
+        /// <param name="mfNum">待操作的matter的id</param>
+        public static void DeleteHistoryList(int mfNum)
+        {
+            try
+            {
+                string sql = "delete from tbHistory where mfNum=" + mfNum;
+                OleDbHelper.ExecuteInt(sql);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
