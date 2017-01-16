@@ -180,17 +180,26 @@ namespace MatterHelpers
         {
             for (int i = 0; i < list.Count; i++)
             {
-                string content = list[i].Content;
-                string done = list[i].DoneDate.ToString();
-                string doneDsp = list[i].DoneDescription;
-                string state = Convert.ToInt32(list[i].State).ToString();
-                string stop = list[i].StopDate.ToString();
-                string stopRsn = list[i].StopReason;
-
-                string sql = string.Format("insert into tbTodo(content,doneDate,doneDescription,state,stopDate,stopReason,mfNum) values('{0}','{1}','{2}','{3}','{4}','{5}',{6})",
-                    content, done, doneDsp, state, stop, stopRsn, mfNum);
-                OleDbHelper.ExecuteInt(sql);
+                InsertTodoItem(list[i], mfNum);
             }
+        }
+        /// <summary>
+        /// 向数据库中插入一个TodoItem
+        /// </summary>
+        /// <param name="ti">要插入的TodoItem</param>
+        /// <param name="mfNum">TodoList所属的Matter编号(数据库中的id字段)</param>
+        public static void InsertTodoItem(TodoItem ti, int mfNum)
+        {
+            string content = ti.Content;
+            string done = ti.DoneDate.ToString();
+            string doneDsp = ti.DoneDescription;
+            string state = Convert.ToInt32(ti.State).ToString();
+            string stop = ti.StopDate.ToString();
+            string stopRsn = ti.StopReason;
+
+            string sql = string.Format("insert into tbTodo(content,doneDate,doneDescription,state,stopDate,stopReason,mfNum) values('{0}','{1}','{2}','{3}','{4}','{5}',{6})",
+                content, done, doneDsp, state, stop, stopRsn, mfNum);
+            OleDbHelper.ExecuteInt(sql);
         }
         /// <summary>
         /// 获取指定TodoList中不在办理中的项目个数

@@ -110,5 +110,19 @@ namespace MatterManager
                 refreshMatterList();
             }
         }
+
+        private void btnEditMatter_Click(object sender, EventArgs e)
+        {
+
+            int rowNum = dgvMatterList.SelectedRows[0].Index;
+            matterFiles mf = mfList[rowNum];
+            frmAddMatterFile frm = new MatterManager.frmAddMatterFile(mf);
+            frm.ShowDialog();
+        }
+
+        private void btnNewTodo_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

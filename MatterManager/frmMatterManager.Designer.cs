@@ -29,26 +29,29 @@
         private void InitializeComponent()
         {
             this.dgvMatterList = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvTodoList = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvHistoryList = new System.Windows.Forms.DataGridView();
-            this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.开始日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEditMatter = new System.Windows.Forms.Button();
+            this.btnDelMatter = new System.Windows.Forms.Button();
+            this.btnNewMatter = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvTodoList = new System.Windows.Forms.DataGridView();
+            this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvHistoryList = new System.Windows.Forms.DataGridView();
             this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewMatter = new System.Windows.Forms.Button();
-            this.btnDelMatter = new System.Windows.Forms.Button();
-            this.btnEditMatter = new System.Windows.Forms.Button();
+            this.btnNewTodo = new System.Windows.Forms.Button();
+            this.btnDeleteTodo = new System.Windows.Forms.Button();
+            this.btnEditTodo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -76,6 +79,30 @@
             this.dgvMatterList.TabIndex = 0;
             this.dgvMatterList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatterList_CellClick);
             // 
+            // 编号
+            // 
+            this.编号.HeaderText = "编号";
+            this.编号.Name = "编号";
+            this.编号.ReadOnly = true;
+            // 
+            // 标题
+            // 
+            this.标题.HeaderText = "标题";
+            this.标题.Name = "标题";
+            this.标题.ReadOnly = true;
+            // 
+            // 开始日期
+            // 
+            this.开始日期.HeaderText = "开始日期";
+            this.开始日期.Name = "开始日期";
+            this.开始日期.ReadOnly = true;
+            // 
+            // 状态
+            // 
+            this.状态.HeaderText = "状态";
+            this.状态.Name = "状态";
+            this.状态.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnEditMatter);
@@ -89,12 +116,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "督办事务列表：";
             // 
+            // btnEditMatter
+            // 
+            this.btnEditMatter.Location = new System.Drawing.Point(675, 78);
+            this.btnEditMatter.Name = "btnEditMatter";
+            this.btnEditMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnEditMatter.TabIndex = 4;
+            this.btnEditMatter.Text = "详情/编辑";
+            this.btnEditMatter.UseVisualStyleBackColor = true;
+            this.btnEditMatter.Click += new System.EventHandler(this.btnEditMatter_Click);
+            // 
+            // btnDelMatter
+            // 
+            this.btnDelMatter.Location = new System.Drawing.Point(675, 49);
+            this.btnDelMatter.Name = "btnDelMatter";
+            this.btnDelMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnDelMatter.TabIndex = 2;
+            this.btnDelMatter.Text = "删除选中";
+            this.btnDelMatter.UseVisualStyleBackColor = true;
+            this.btnDelMatter.Click += new System.EventHandler(this.btnDelMatter_Click);
+            // 
+            // btnNewMatter
+            // 
+            this.btnNewMatter.Location = new System.Drawing.Point(675, 20);
+            this.btnNewMatter.Name = "btnNewMatter";
+            this.btnNewMatter.Size = new System.Drawing.Size(75, 23);
+            this.btnNewMatter.TabIndex = 1;
+            this.btnNewMatter.Text = "新增事务";
+            this.btnNewMatter.UseVisualStyleBackColor = true;
+            this.btnNewMatter.Click += new System.EventHandler(this.btnNewMatter_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnEditTodo);
+            this.groupBox2.Controls.Add(this.btnDeleteTodo);
+            this.groupBox2.Controls.Add(this.btnNewTodo);
             this.groupBox2.Controls.Add(this.dgvTodoList);
             this.groupBox2.Location = new System.Drawing.Point(12, 198);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(675, 180);
+            this.groupBox2.Size = new System.Drawing.Size(802, 180);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待办事项详情：";
@@ -116,6 +176,31 @@
             this.dgvTodoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTodoList.Size = new System.Drawing.Size(663, 147);
             this.dgvTodoList.TabIndex = 0;
+            // 
+            // todo编号
+            // 
+            this.todo编号.HeaderText = "编号";
+            this.todo编号.Name = "todo编号";
+            this.todo编号.ReadOnly = true;
+            // 
+            // 内容
+            // 
+            this.内容.HeaderText = "内容";
+            this.内容.Name = "内容";
+            this.内容.ReadOnly = true;
+            // 
+            // todo状态
+            // 
+            this.todo状态.HeaderText = "状态";
+            this.todo状态.Name = "todo状态";
+            this.todo状态.ReadOnly = true;
+            // 
+            // mfNum
+            // 
+            this.mfNum.HeaderText = "mfNum";
+            this.mfNum.Name = "mfNum";
+            this.mfNum.ReadOnly = true;
+            this.mfNum.Visible = false;
             // 
             // groupBox3
             // 
@@ -145,55 +230,6 @@
             this.dgvHistoryList.Size = new System.Drawing.Size(663, 147);
             this.dgvHistoryList.TabIndex = 0;
             // 
-            // todo编号
-            // 
-            this.todo编号.HeaderText = "编号";
-            this.todo编号.Name = "todo编号";
-            this.todo编号.ReadOnly = true;
-            // 
-            // 内容
-            // 
-            this.内容.HeaderText = "内容";
-            this.内容.Name = "内容";
-            this.内容.ReadOnly = true;
-            // 
-            // todo状态
-            // 
-            this.todo状态.HeaderText = "状态";
-            this.todo状态.Name = "todo状态";
-            this.todo状态.ReadOnly = true;
-            // 
-            // mfNum
-            // 
-            this.mfNum.HeaderText = "mfNum";
-            this.mfNum.Name = "mfNum";
-            this.mfNum.ReadOnly = true;
-            this.mfNum.Visible = false;
-            // 
-            // 编号
-            // 
-            this.编号.HeaderText = "编号";
-            this.编号.Name = "编号";
-            this.编号.ReadOnly = true;
-            // 
-            // 标题
-            // 
-            this.标题.HeaderText = "标题";
-            this.标题.Name = "标题";
-            this.标题.ReadOnly = true;
-            // 
-            // 开始日期
-            // 
-            this.开始日期.HeaderText = "开始日期";
-            this.开始日期.Name = "开始日期";
-            this.开始日期.ReadOnly = true;
-            // 
-            // 状态
-            // 
-            this.状态.HeaderText = "状态";
-            this.状态.Name = "状态";
-            this.状态.ReadOnly = true;
-            // 
             // history编号
             // 
             this.history编号.HeaderText = "编号";
@@ -219,34 +255,33 @@
             this.history_mfNum.ReadOnly = true;
             this.history_mfNum.Visible = false;
             // 
-            // btnNewMatter
+            // btnNewTodo
             // 
-            this.btnNewMatter.Location = new System.Drawing.Point(675, 20);
-            this.btnNewMatter.Name = "btnNewMatter";
-            this.btnNewMatter.Size = new System.Drawing.Size(75, 23);
-            this.btnNewMatter.TabIndex = 1;
-            this.btnNewMatter.Text = "新增事务";
-            this.btnNewMatter.UseVisualStyleBackColor = true;
-            this.btnNewMatter.Click += new System.EventHandler(this.btnNewMatter_Click);
+            this.btnNewTodo.Location = new System.Drawing.Point(675, 20);
+            this.btnNewTodo.Name = "btnNewTodo";
+            this.btnNewTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnNewTodo.TabIndex = 1;
+            this.btnNewTodo.Text = "新增待办";
+            this.btnNewTodo.UseVisualStyleBackColor = true;
+            this.btnNewTodo.Click += new System.EventHandler(this.btnNewTodo_Click);
             // 
-            // btnDelMatter
+            // btnDeleteTodo
             // 
-            this.btnDelMatter.Location = new System.Drawing.Point(675, 49);
-            this.btnDelMatter.Name = "btnDelMatter";
-            this.btnDelMatter.Size = new System.Drawing.Size(75, 23);
-            this.btnDelMatter.TabIndex = 2;
-            this.btnDelMatter.Text = "删除选中";
-            this.btnDelMatter.UseVisualStyleBackColor = true;
-            this.btnDelMatter.Click += new System.EventHandler(this.btnDelMatter_Click);
+            this.btnDeleteTodo.Location = new System.Drawing.Point(675, 49);
+            this.btnDeleteTodo.Name = "btnDeleteTodo";
+            this.btnDeleteTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteTodo.TabIndex = 2;
+            this.btnDeleteTodo.Text = "删除选中";
+            this.btnDeleteTodo.UseVisualStyleBackColor = true;
             // 
-            // btnEditMatter
+            // btnEditTodo
             // 
-            this.btnEditMatter.Location = new System.Drawing.Point(675, 78);
-            this.btnEditMatter.Name = "btnEditMatter";
-            this.btnEditMatter.Size = new System.Drawing.Size(75, 23);
-            this.btnEditMatter.TabIndex = 4;
-            this.btnEditMatter.Text = "查看详情";
-            this.btnEditMatter.UseVisualStyleBackColor = true;
+            this.btnEditTodo.Location = new System.Drawing.Point(675, 78);
+            this.btnEditTodo.Name = "btnEditTodo";
+            this.btnEditTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTodo.TabIndex = 3;
+            this.btnEditTodo.Text = "详情/编辑";
+            this.btnEditTodo.UseVisualStyleBackColor = true;
             // 
             // frmMatterManager
             // 
@@ -292,5 +327,8 @@
         private System.Windows.Forms.Button btnNewMatter;
         private System.Windows.Forms.Button btnEditMatter;
         private System.Windows.Forms.Button btnDelMatter;
+        private System.Windows.Forms.Button btnNewTodo;
+        private System.Windows.Forms.Button btnDeleteTodo;
+        private System.Windows.Forms.Button btnEditTodo;
     }
 }

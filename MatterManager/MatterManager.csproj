@@ -71,6 +71,12 @@
     <Compile Include="frmAddMatterFile.Designer.cs">
       <DependentUpon>frmAddMatterFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddNewTodoItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewTodoItem.Designer.cs">
+      <DependentUpon>frmAddNewTodoItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLeadmanManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddMatterFile.resx">
       <DependentUpon>frmAddMatterFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddNewTodoItem.resx">
+      <DependentUpon>frmAddNewTodoItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLeadmanManager.resx">
       <DependentUpon>frmLeadmanManager.cs</DependentUpon>

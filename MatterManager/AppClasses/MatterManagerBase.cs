@@ -283,6 +283,12 @@ namespace MatterManagerClasses
         public void uploadFile(string sourcePath, string targetPath)
         {
             //从sourcePath复制到targetPath
+            if (string.Equals(sourcePath, targetPath))
+            {
+                //编辑模式未修改文件
+                FileAddr = targetPath;
+                return;
+            }
             try
             {
                 File.Copy(sourcePath, targetPath, true);

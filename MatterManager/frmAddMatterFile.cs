@@ -9,18 +9,50 @@ namespace MatterManager
 {
     public partial class frmAddMatterFile : Form
     {
+        private bool isEditMode = false;
+        private matterFiles editMF;
+
         public frmAddMatterFile()
         {
+            InitializeComponent();
+        }
+
+        public frmAddMatterFile(object mf)
+        {
+            isEditMode = true;
+            editMF = (matterFiles)mf;
             InitializeComponent();
         }
 
         private void frmAddMatterFile_Load(object sender, EventArgs e)
         {
             //初始化窗体内容
-            //date time picker时间显示当前时间
-            dtpBeginDate.Value = DateTime.Now;
-            //清除data grid view控件中的空行
-            dgvTodoItemList.RowCount = 0;
+            if (isEditMode)
+            {
+                //编辑模式
+                txtTitle.Text = editMF.Title;
+                dtpBeginDate.Value = editMF.BeginDate;
+                txtDescription.Text = editMF.Describe;
+                txtRemind.Text = (editMF.HowManyHoursToRemind / 24).ToString();
+                txtFileTitle.Text = txtTitle.Text;
+                txtFileNumber.Text = editMF.FileNum;
+                ofdUploadFile.FileName = editMF.FileAddr;
+                lblPathOfUploaded.Text = editMF.FileAddr;
+                cboLeadman.Text = editMF.Leader.Name + ":" + editMF.Leader.ItsPost;
+                List<TodoItem> list = editMF.TodoItemList;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    dgvTodoItemList.Rows.Add(i + 1, list[i].Content);
+                }
+            }
+            else
+            {
+                //新建模式
+                //date time picker时间显示当前时间
+                dtpBeginDate.Value = DateTime.Now;
+                //清除data grid view控件中的空行
+                dgvTodoItemList.Rows.Clear();
+            }
             //获取所有已存在的Leadman信息,附加在combo box的items集合中
             List<Leadman> leaderList = MatterHelper.getAllLeadmans();
             if (leaderList.Count != 0)
