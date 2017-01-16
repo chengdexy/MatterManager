@@ -39,7 +39,7 @@ namespace MatterManager
                 matterFiles mf = mfList[i];
                 int id = mf.Id;
                 string title = mf.Title;
-                string begin = mf.BeginDate.ToShortDateString();
+                string begin = mf.BeginDate.ToString("yyyy年MM月dd日");
                 string state = mf.State.ToString();
                 dgvMatterList.Rows.Add(i + 1, title, begin, state, id);
             }

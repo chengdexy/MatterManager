@@ -4,11 +4,14 @@ using System.IO;
 
 namespace MatterManagerClasses
 {
+    /// <summary>
+    /// 枚举类型MyStates,用于标识matter及todoitem的执行状态
+    /// </summary>
     enum MyStates
     {
-        Doing = 0,
-        Done = 1,
-        Stop = 2,
+        办理中 = 0,
+        已办结 = 1,
+        已中止 = 2,
     };
     /// <summary>
     /// 事务类基类
@@ -179,7 +182,7 @@ namespace MatterManagerClasses
         public Matter()
         {
             BeginDate = DateTime.Now;
-            State = MyStates.Doing;
+            State = MyStates.办理中;
             TodoItemList = new List<TodoItem>();
             HistoryRecord = new List<SuperviseRecord>();
             HowManyHoursToRemind = 24;
@@ -188,7 +191,7 @@ namespace MatterManagerClasses
         {
             Title = title;
             BeginDate = DateTime.Now;
-            State = MyStates.Doing;
+            State = MyStates.办理中;
             TodoItemList = new List<TodoItem>();
             HistoryRecord = new List<SuperviseRecord>();
             HowManyHoursToRemind = 24;
@@ -205,7 +208,7 @@ namespace MatterManagerClasses
             int sum = 0;
             foreach (TodoItem item in TodoItemList)
             {
-                if (item.State == MyStates.Done)
+                if (item.State == MyStates.已办结)
                 {
                     sum++;
                 }
@@ -221,7 +224,7 @@ namespace MatterManagerClasses
             int sum = 0;
             foreach (TodoItem item in TodoItemList)
             {
-                if (item.State == MyStates.Stop)
+                if (item.State == MyStates.已中止)
                 {
                     sum++;
                 }
@@ -355,7 +358,6 @@ namespace MatterManagerClasses
             }
         }
     }
-
     /// <summary>
     /// 牵头人类
     /// </summary>
@@ -424,7 +426,6 @@ namespace MatterManagerClasses
             ItsPost = itsPost;
         }
     }
-
     /// <summary>
     /// 待办项目类
     /// </summary>
@@ -560,24 +561,23 @@ namespace MatterManagerClasses
         public TodoItem(string content)
         {
             Content = content;
-            State = MyStates.Doing;
+            State = MyStates.办理中;
         }
 
         //方法
         public void setItemDone(string doneDescription)
         {
-            State = MyStates.Done;
+            State = MyStates.已办结;
             DoneDate = DateTime.Now;
             DoneDescription = doneDescription;
         }
         public void setItemStop(string stopReason)
         {
-            State = MyStates.Stop;
+            State = MyStates.已中止;
             StopDate = DateTime.Now;
             StopReason = stopReason;
         }
     }
-
     /// <summary>
     /// 督办记录类
     /// </summary>

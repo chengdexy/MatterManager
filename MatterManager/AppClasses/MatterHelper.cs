@@ -202,7 +202,7 @@ namespace MatterHelpers
             int doneCount = 0;
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].State != MyStates.Doing)
+                if (list[i].State != MyStates.办理中)
                 {
                     doneCount++;
                 }
