@@ -300,7 +300,15 @@ namespace MatterHelpers
                 throw new Exception(e.Message);
             }
         }
-
+        /// <summary>
+        /// 从数据库中删除指定id的TodoItem
+        /// </summary>
+        /// <param name="todoId">要删除的Id</param>
+        public static void DeleteTodoItem(int todoId)
+        {
+            string sql = "delete from tbTodo where id=" + todoId;
+            OleDbHelper.ExecuteInt(sql);
+        }
         #endregion
 
         #region HistoryList
@@ -317,9 +325,10 @@ namespace MatterHelpers
             dr = OleDbHelper.ExecuteReader(sqlStr);
             while (dr.Read())
             {
-                DateTime connect = Convert.ToDateTime(dr["connect"]);
+                DateTime connect = Convert.ToDateTime(dr["connectDate"]);
                 string result = dr["result"].ToString();
                 SuperviseRecord sr = new SuperviseRecord(connect, result);
+                sr.Id = Convert.ToInt32(dr["id"]);
                 list.Add(sr);
             }
             dr.Close();
@@ -335,12 +344,33 @@ namespace MatterHelpers
         {
             for (int i = 0; i < list.Count; i++)
             {
-                string connect = list[i].ConnectDate.ToString();
-                string result = list[i].Result;
-
-                string sql = string.Format("insert into tbHistory(connect,result,mfNum) values('{0}','{1}',{2})", connect, result, mfNum);
-                OleDbHelper.ExecuteInt(sql);
+                InsertSuperviseRecord(list[i], mfNum);
             }
+        }
+        /// <summary>
+        /// 将一个SuperviseRecord存入数据库
+        /// </summary>
+        /// <param name="sr">要插入的SuperviseRecord对象</param>
+        /// <param name="mfNum">要插入的对象所属Matter编号(id字段)</param>
+        public static void InsertSuperviseRecord(SuperviseRecord sr, int mfNum)
+        {
+            string connect = sr.ConnectDate.ToString();
+            string result = sr.Result;
+
+            string sql = string.Format("insert into tbHistory(connectDate,result,mfNum) values('{0}','{1}',{2})", connect, result, mfNum);
+            OleDbHelper.ExecuteInt(sql);
+        }
+        /// <summary>
+        /// 修改数据库中指定id的SuperviseRecord
+        /// </summary>
+        /// <param name="sr">目标SuperviseRecord</param>
+        /// <param name="hId">指定的id</param>
+        public static void UpdateSuperviseRecord(SuperviseRecord sr, int hId)
+        {
+            string connect = sr.ConnectDate.ToString();
+            string result = sr.Result;
+            string sql = string.Format("update tbHistory set connectDate='{0}',result='{1}' where id={2}", connect, result, hId);
+            OleDbHelper.ExecuteInt(sql);
         }
         /// <summary>
         /// 从数据库中删除指定id的matter所包含的historylist

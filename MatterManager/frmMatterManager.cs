@@ -88,10 +88,11 @@ namespace MatterManager
             int mfNum = mfList[rowNum].Id;
             for (int i = 0; i < srList.Count; i++)
             {
-                string connect = srList[i].ConnectDate.ToShortDateString();
+                string id = srList[i].Id.ToString();
+                string connect = srList[i].ConnectDate.ToString("yyyy年MM月dd日");
                 string result = srList[i].Result;
 
-                dgvHistoryList.Rows.Add(i + 1, connect, result, mfNum);
+                dgvHistoryList.Rows.Add(i + 1, connect, result, mfNum, id);
             }
         }
 
@@ -104,25 +105,31 @@ namespace MatterManager
 
         private void btnDelMatter_Click(object sender, EventArgs e)
         {
-            matterFiles mf = mfList[dgvMatterList.Rows[0].Index];
-            if (MessageBox.Show("确定要删除这件督办事务吗?操作不可逆.", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (dgvMatterList.Rows.Count != 0)
             {
-                MessageBox.Show(MatterHelper.DeleteMatter(mf), "结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                refreshMatterList();
+                matterFiles mf = mfList[dgvMatterList.Rows[0].Index];
+                if (MessageBox.Show("确定要删除这件督办事务吗?操作不可逆.", "删除确认", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    MessageBox.Show(MatterHelper.DeleteMatter(mf), "结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshMatterList();
+                }
             }
         }
 
         private void btnEditMatter_Click(object sender, EventArgs e)
         {
-            int rowNum = dgvMatterList.SelectedRows[0].Index;
-            matterFiles mf = mfList[rowNum];
-            frmAddMatterFile frm = new MatterManager.frmAddMatterFile(mf);
-            frm.ShowDialog();
+            if (dgvMatterList.SelectedRows.Count != 0)
+            {
+                int rowNum = dgvMatterList.SelectedRows[0].Index;
+                matterFiles mf = mfList[rowNum];
+                frmAddMatterFile frm = new MatterManager.frmAddMatterFile(mf);
+                frm.ShowDialog();
+            }
         }
 
         private void btnNewTodo_Click(object sender, EventArgs e)
         {
-            if (dgvTodoList.Rows.Count != 0)
+            if (dgvMatterList.SelectedRows.Count != 0)
             {
                 int mfNum = Convert.ToInt32(dgvTodoList.SelectedRows[0].Cells["mfNum"].Value);
                 frmAddNewTodoItem f = new frmAddNewTodoItem(mfNum);
@@ -134,7 +141,7 @@ namespace MatterManager
 
         private void btnEditTodo_Click(object sender, EventArgs e)
         {
-            if (dgvTodoList.Rows.Count != 0)
+            if (dgvTodoList.SelectedRows.Count != 0)
             {
                 int todoId = Convert.ToInt32(dgvTodoList.SelectedRows[0].Cells["todoId"].Value);
                 int mfRowNum = dgvMatterList.SelectedRows[0].Index;
@@ -149,7 +156,55 @@ namespace MatterManager
 
         private void btnDeleteTodo_Click(object sender, EventArgs e)
         {
+            if (dgvTodoList.Rows.Count > 1)
+            {
+                if (dgvTodoList.SelectedRows.Count != 0)
+                {
+                    int todoid = Convert.ToInt32(dgvTodoList.SelectedRows[0].Cells["todoId"].Value);
+                    if (dgvTodoList.SelectedRows[0].Cells[2].Value.ToString() != MyStates.办理中.ToString())
+                    {
+                        MatterHelper.DeleteTodoItem(todoid);
+                    }
+                    else
+                    {
+                        MessageBox.Show("你不能删除一个还未办结或中止的待办事项!");
+                    }
+                }
+            }
+            else if (dgvTodoList.Rows.Count == 1)
+            {
+                MessageBox.Show("删除失败,事务需要至少包含一条待办事项.");
+            }
+            else
+            {
+                return;
+            }
+        }
 
+        private void btnAddHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvMatterList.SelectedRows.Count != 0)
+            {
+                int mfNum = Convert.ToInt32(dgvMatterList.SelectedRows[0].Cells["mId"].Value);
+                frmAddNewHistory f = new frmAddNewHistory(mfNum);
+                f.Text = "新增督办反馈记录";
+                f.ShowDialog(this);
+                refreshMatterList();
+            }
+        }
+
+        private void btnEditHistory_Click(object sender, EventArgs e)
+        {
+            if (dgvHistoryList.SelectedRows.Count != 0)
+            {
+                int hId = Convert.ToInt32(dgvHistoryList.SelectedRows[0].Cells["hId"].Value);
+                matterFiles mf = mfList[dgvMatterList.SelectedRows[0].Index];
+                SuperviseRecord sr = mf.HistoryRecord[dgvHistoryList.SelectedRows[0].Index];
+                frmAddNewHistory f = new frmAddNewHistory(sr, hId);
+                f.Text = "编辑督办反馈记录";
+                f.ShowDialog(this);
+                refreshMatterList();
+            }
         }
     }
 }

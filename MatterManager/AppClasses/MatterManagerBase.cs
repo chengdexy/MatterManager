@@ -566,6 +566,26 @@ namespace MatterManagerClasses
     class SuperviseRecord
     {
         /// <summary>
+        /// 数据库中id值
+        /// </summary>
+        private int _id;
+        /// <summary>
+        /// 数据库中id值
+        /// </summary>
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
+
+        /// <summary>
         /// 联系日期
         /// </summary>
         private DateTime _connectDate;
@@ -605,6 +625,7 @@ namespace MatterManagerClasses
                 _result = value;
             }
         }
+
 
 
 

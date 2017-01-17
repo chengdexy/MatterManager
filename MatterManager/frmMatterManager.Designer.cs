@@ -33,6 +33,7 @@
             this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.开始日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnEditMatter = new System.Windows.Forms.Button();
             this.btnDelMatter = new System.Windows.Forms.Button();
@@ -42,17 +43,20 @@
             this.btnDeleteTodo = new System.Windows.Forms.Button();
             this.btnNewTodo = new System.Windows.Forms.Button();
             this.dgvTodoList = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvHistoryList = new System.Windows.Forms.DataGridView();
-            this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.todoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAddHistory = new System.Windows.Forms.Button();
+            this.dgvHistoryList = new System.Windows.Forms.DataGridView();
+            this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,7 +74,8 @@
             this.编号,
             this.标题,
             this.开始日期,
-            this.状态});
+            this.状态,
+            this.mId});
             this.dgvMatterList.Location = new System.Drawing.Point(6, 20);
             this.dgvMatterList.Name = "dgvMatterList";
             this.dgvMatterList.ReadOnly = true;
@@ -103,6 +108,13 @@
             this.状态.HeaderText = "状态";
             this.状态.Name = "状态";
             this.状态.ReadOnly = true;
+            // 
+            // mId
+            // 
+            this.mId.HeaderText = "mId";
+            this.mId.Name = "mId";
+            this.mId.ReadOnly = true;
+            this.mId.Visible = false;
             // 
             // groupBox1
             // 
@@ -209,15 +221,59 @@
             this.dgvTodoList.Size = new System.Drawing.Size(663, 147);
             this.dgvTodoList.TabIndex = 0;
             // 
+            // todo编号
+            // 
+            this.todo编号.HeaderText = "编号";
+            this.todo编号.Name = "todo编号";
+            this.todo编号.ReadOnly = true;
+            // 
+            // 内容
+            // 
+            this.内容.HeaderText = "内容";
+            this.内容.Name = "内容";
+            this.内容.ReadOnly = true;
+            // 
+            // todo状态
+            // 
+            this.todo状态.HeaderText = "状态";
+            this.todo状态.Name = "todo状态";
+            this.todo状态.ReadOnly = true;
+            // 
+            // mfNum
+            // 
+            this.mfNum.HeaderText = "mfNum";
+            this.mfNum.Name = "mfNum";
+            this.mfNum.ReadOnly = true;
+            this.mfNum.Visible = false;
+            // 
+            // todoId
+            // 
+            this.todoId.HeaderText = "todoId";
+            this.todoId.Name = "todoId";
+            this.todoId.ReadOnly = true;
+            this.todoId.Visible = false;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnEditHistory);
+            this.groupBox3.Controls.Add(this.btnAddHistory);
             this.groupBox3.Controls.Add(this.dgvHistoryList);
             this.groupBox3.Location = new System.Drawing.Point(12, 384);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(675, 180);
+            this.groupBox3.Size = new System.Drawing.Size(802, 180);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "督办反馈记录：";
+            // 
+            // btnAddHistory
+            // 
+            this.btnAddHistory.Location = new System.Drawing.Point(672, 20);
+            this.btnAddHistory.Name = "btnAddHistory";
+            this.btnAddHistory.Size = new System.Drawing.Size(75, 23);
+            this.btnAddHistory.TabIndex = 1;
+            this.btnAddHistory.Text = "添加记录";
+            this.btnAddHistory.UseVisualStyleBackColor = true;
+            this.btnAddHistory.Click += new System.EventHandler(this.btnAddHistory_Click);
             // 
             // dgvHistoryList
             // 
@@ -228,7 +284,8 @@
             this.history编号,
             this.联系日期,
             this.反馈内容,
-            this.history_mfNum});
+            this.history_mfNum,
+            this.hId});
             this.dgvHistoryList.Location = new System.Drawing.Point(3, 17);
             this.dgvHistoryList.Name = "dgvHistoryList";
             this.dgvHistoryList.ReadOnly = true;
@@ -262,43 +319,28 @@
             this.history_mfNum.ReadOnly = true;
             this.history_mfNum.Visible = false;
             // 
-            // todo编号
+            // hId
             // 
-            this.todo编号.HeaderText = "编号";
-            this.todo编号.Name = "todo编号";
-            this.todo编号.ReadOnly = true;
+            this.hId.HeaderText = "hId";
+            this.hId.Name = "hId";
+            this.hId.ReadOnly = true;
+            this.hId.Visible = false;
             // 
-            // 内容
+            // btnEditHistory
             // 
-            this.内容.HeaderText = "内容";
-            this.内容.Name = "内容";
-            this.内容.ReadOnly = true;
-            // 
-            // todo状态
-            // 
-            this.todo状态.HeaderText = "状态";
-            this.todo状态.Name = "todo状态";
-            this.todo状态.ReadOnly = true;
-            // 
-            // mfNum
-            // 
-            this.mfNum.HeaderText = "mfNum";
-            this.mfNum.Name = "mfNum";
-            this.mfNum.ReadOnly = true;
-            this.mfNum.Visible = false;
-            // 
-            // todoId
-            // 
-            this.todoId.HeaderText = "todoId";
-            this.todoId.Name = "todoId";
-            this.todoId.ReadOnly = true;
-            this.todoId.Visible = false;
+            this.btnEditHistory.Location = new System.Drawing.Point(672, 49);
+            this.btnEditHistory.Name = "btnEditHistory";
+            this.btnEditHistory.Size = new System.Drawing.Size(75, 23);
+            this.btnEditHistory.TabIndex = 2;
+            this.btnEditHistory.Text = "编辑内容";
+            this.btnEditHistory.UseVisualStyleBackColor = true;
+            this.btnEditHistory.Click += new System.EventHandler(this.btnEditHistory_Click);
             // 
             // frmMatterManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 585);
+            this.ClientSize = new System.Drawing.Size(828, 585);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -323,14 +365,6 @@
         private System.Windows.Forms.DataGridView dgvTodoList;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvHistoryList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 编号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 标题;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 开始日期;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
-        private System.Windows.Forms.DataGridViewTextBoxColumn history编号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 联系日期;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 反馈内容;
-        private System.Windows.Forms.DataGridViewTextBoxColumn history_mfNum;
         private System.Windows.Forms.Button btnNewMatter;
         private System.Windows.Forms.Button btnEditMatter;
         private System.Windows.Forms.Button btnDelMatter;
@@ -342,5 +376,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn todo状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn mfNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn todoId;
+        private System.Windows.Forms.Button btnAddHistory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn history编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 联系日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 反馈内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn history_mfNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 标题;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 开始日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mId;
+        private System.Windows.Forms.Button btnEditHistory;
     }
 }
