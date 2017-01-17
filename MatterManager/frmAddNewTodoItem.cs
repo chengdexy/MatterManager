@@ -1,4 +1,5 @@
-﻿using MatterManagerClasses;
+﻿using MatterHelpers;
+using MatterManagerClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,27 +14,81 @@ namespace MatterManager
 {
     public partial class frmAddNewTodoItem : Form
     {
-        private int? mfId = null;
-        TodoItem ti = null;
-
+        private static int? mfId = null;
+        private static TodoItem myti = null;
+        private static bool isEditMode = false;
+        private static int? tId = null;
+        /// <summary>
+        /// 新增模式构造
+        /// </summary>
+        /// <param name="mfNum">欲向其添加todoItem的Matter的id号</param>
         public frmAddNewTodoItem(int mfNum)
         {
             mfId = mfNum;
             InitializeComponent();
         }
-
-        public frmAddNewTodoItem(object ti, int mfNum)
+        /// <summary>
+        /// 编辑模式构造
+        /// </summary>
+        /// <param name="ti">目标TodoItem</param>
+        /// <param name="todoId">目标数据库id</param>
+        public frmAddNewTodoItem(object ti, int todoId)
         {
-            mfId = mfNum;
-            ti = (TodoItem)ti;
+            tId = todoId;
+            myti = (TodoItem)ti;
+            isEditMode = true;
             InitializeComponent();
         }
 
         private void frmAddNewTodoItem_Load(object sender, EventArgs e)
         {
-            if (ti != null)
+            if (isEditMode)
             {
-
+                txtContent.Text = myti.Content;
+                txtDoneDescription.Text = myti.DoneDescription;
+                txtStopReason.Text = myti.StopReason;
+                if (myti.DoneDate != null && myti.DoneDate != MatterHelper.defaultDate)
+                {
+                    dtpDone.Value = myti.DoneDate;
+                }
+                if (myti.StopDate != null && myti.StopDate != MatterHelper.defaultDate)
+                {
+                    dtpStop.Value = myti.StopDate;
+                }
+                if (myti.State == MyStates.办理中)
+                {
+                    rbDoing.Checked = true;
+                    dtpDone.Enabled = false;
+                    txtDoneDescription.Enabled = false;
+                    dtpStop.Enabled = false;
+                    txtStopReason.Enabled = false;
+                }
+                else if (myti.State == MyStates.已中止)
+                {
+                    rbStop.Checked = true;
+                    dtpDone.Enabled = false;
+                    txtDoneDescription.Enabled = false;
+                    dtpStop.Enabled = true;
+                    txtStopReason.Enabled = true;
+                }
+                else
+                {
+                    rbDone.Checked = true;
+                    dtpDone.Enabled = true;
+                    txtDoneDescription.Enabled = true;
+                    dtpStop.Enabled = false;
+                    txtStopReason.Enabled = false;
+                }
+            }
+            else
+            {
+                rbDoing.Checked = true;
+                rbDone.Enabled = false;
+                rbStop.Enabled = false;
+                dtpDone.Enabled = false;
+                txtDoneDescription.Enabled = false;
+                dtpStop.Enabled = false;
+                txtStopReason.Enabled = false;
             }
         }
 
@@ -83,9 +138,17 @@ namespace MatterManager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string content = "";
+            DateTime done = MatterHelper.defaultDate;
+            string description = "";
+            DateTime stop = MatterHelper.defaultDate;
+            string reason = "";
+            MyStates state;
+
+            //验证合法性,并获取所需变量值
             if (!string.IsNullOrEmpty(txtContent.Text))
             {
-                string content = txtContent.Text.Trim();
+                content = txtContent.Text.Trim();
             }
             else
             {
@@ -96,20 +159,63 @@ namespace MatterManager
             if (rbDoing.Checked)
             {
                 //选中doing
+                state = MyStates.办理中;
             }
             else if (rbDone.Checked)
             {
                 //选中done
+                if (!string.IsNullOrEmpty(txtDoneDescription.Text))
+                {
+                    description = txtDoneDescription.Text;
+                }
+                else
+                {
+                    MessageBox.Show("请输入办理结果!");
+                    txtDoneDescription.Focus();
+                    return;
+                }
+                state = MyStates.已办结;
+                done = dtpDone.Value;
             }
             else if (rbStop.Checked)
             {
                 //选中stop
+                if (!string.IsNullOrEmpty(txtStopReason.Text))
+                {
+                    reason = txtStopReason.Text;
+                }
+                else
+                {
+                    MessageBox.Show("请输入中止原因");
+                    txtStopReason.Focus();
+                    return;
+                }
+                state = MyStates.已中止;
+                stop = dtpStop.Value;
             }
             else
             {
                 //全都没选中
+                MessageBox.Show("请至少选中一个办理状态选项!");
+                rbDoing.Focus();
+                return;
             }
-
+            //将变量值存入数据库
+            TodoItem ti = new TodoItem(content);
+            ti.DoneDate = done;
+            ti.DoneDescription = description;
+            ti.StopDate = stop;
+            ti.StopReason = reason;
+            ti.State = state;
+            if (isEditMode)
+            {
+                MatterHelper.UpdateTodoItem(ti, (int)tId);
+            }
+            else
+            {
+                MatterHelper.InsertTodoItem(ti, (int)mfId);
+            }
+            this.Close();
         }
     }
 }

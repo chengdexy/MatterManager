@@ -140,7 +140,31 @@ namespace MatterHelpers
             }
 
         }
+        /// <summary>
+        /// 编辑保存数据库中一条Matter的信息(但不会更新其对应的todo表和history表)
+        /// </summary>
+        /// <param name="mf">目标matter</param>
+        public static void UpdateMatter(matterFiles mf)
+        {
+            //获取信息
+            int id = mf.Id;
+            string title = mf.Title;
+            string description = mf.Describe;
+            DateTime beginDate = mf.BeginDate;
+            int state = Convert.ToInt32(mf.State);
+            Leadman leadman = mf.Leader;
+            int remind = mf.HowManyHoursToRemind;
+            string fileNum = mf.FileNum;
+            string filePath = mf.FileAddr;
 
+            //分别插入数据库中
+            //基本信息
+            string sqlStr = string.Format("update tbMatter set title='{0}',description='{1}',beginDate='{2}',state='{3}',remind={4},fileNum='{5}',filePath='{6}',leadername='{7}',leaderpost='{8}' where id={9}",
+                title, description, beginDate.ToString(), state.ToString(), remind, fileNum, filePath, leadman.Name, leadman.ItsPost, id);
+            OleDbHelper.ExecuteInt(sqlStr);
+            //Leadman
+            SaveLeadman(leadman);
+        }
 
 
         #endregion
@@ -160,6 +184,7 @@ namespace MatterHelpers
             while (dr.Read())
             {
                 TodoItem ti = new TodoItem(dr["content"].ToString());
+                ti.Id = Convert.ToInt32(dr["id"]);
                 ti.DoneDate = Convert.ToDateTime(dr["doneDate"]);
                 ti.DoneDescription = dr["doneDescription"].ToString();
                 ti.State = (MyStates)(Convert.ToInt32(dr["state"]));
@@ -201,6 +226,46 @@ namespace MatterHelpers
                 content, done, doneDsp, state, stop, stopRsn, mfNum);
             OleDbHelper.ExecuteInt(sql);
         }
+        /// <summary>
+        /// 修改数据库中一条todoitem
+        /// </summary>
+        /// <param name="ti">取值用的TodoItem</param>
+        /// <param name="todoId">数据库中要修改项的id字段值</param>
+        public static void UpdateTodoItem(TodoItem ti, int todoId)
+        {
+            string content = ti.Content;
+            string done = ti.DoneDate.ToString();
+            string doneDsp = ti.DoneDescription;
+            string state = Convert.ToInt32(ti.State).ToString();
+            string stop = ti.StopDate.ToString();
+            string stopRsn = ti.StopReason;
+
+            string sql = string.Format("update tbTodo set content='{0}',doneDate='{1}',doneDescription='{2}',state='{3}',stopDate='{4}',stopReason='{5}' where id={6}",
+                content, done, doneDsp, state, stop, stopRsn, todoId);
+            OleDbHelper.ExecuteInt(sql);
+            //检查并更新matter的state
+            sql = "select mfNum from tbTodo where id=" + todoId;
+            int mfNum = Convert.ToInt32(OleDbHelper.ExecuteScaler(sql));
+            sql = "select count(state) from tbTodo where state='" + Convert.ToInt32(MyStates.办理中).ToString() + "' and mfNum=" + mfNum;
+            int doingCount = Convert.ToInt32(OleDbHelper.ExecuteScaler(sql));
+            if (doingCount == 0)
+            {
+                sql = "select count(state) from tbTodo where state='" + Convert.ToInt32(MyStates.已中止).ToString() + "' and mfNum=" + mfNum;
+                int stopCount = Convert.ToInt32(OleDbHelper.ExecuteScaler(sql));
+                if (stopCount != 0)
+                {
+                    //状态为已中止
+                    sql = "update tbMatter set state='" + Convert.ToInt32(MyStates.已中止).ToString() + "' where id=" + mfNum;
+                }
+                else
+                {
+                    //状态为已办结
+                    sql = "update tbMatter set state='" + Convert.ToInt32(MyStates.已办结).ToString() + "' where id=" + mfNum;
+                }
+                OleDbHelper.ExecuteInt(sql);
+            }
+        }
+
         /// <summary>
         /// 获取指定TodoList中不在办理中的项目个数
         /// </summary>

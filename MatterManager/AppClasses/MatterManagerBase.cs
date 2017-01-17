@@ -18,15 +18,7 @@ namespace MatterManagerClasses
     /// </summary>
     class Matter
     {
-        /*
-         *1. 名称√
-         *2. 描述
-         *3. 发生时间√
-         *4. 进度状态√
-         *5. 联系记录（集合）
-         *6. 事件类型√
-         */
-
+        #region 字段&属性
         //事项编号
         private int _id;
         public int Id
@@ -172,13 +164,9 @@ namespace MatterManagerClasses
                 _kind = value;
             }
         }
+        #endregion
 
-
-
-
-
-
-        //构造函数
+        #region 构造函数
         public Matter()
         {
             BeginDate = DateTime.Now;
@@ -197,40 +185,7 @@ namespace MatterManagerClasses
             HowManyHoursToRemind = 24;
             Leader = leadman;
         }
-
-        //方法
-        /// <summary>
-        /// 获取办结事项项目数
-        /// </summary>
-        /// <returns>办结事项项目数量</returns>
-        public int getDoneCount()
-        {
-            int sum = 0;
-            foreach (TodoItem item in TodoItemList)
-            {
-                if (item.State == MyStates.已办结)
-                {
-                    sum++;
-                }
-            }
-            return sum;
-        }
-        /// <summary>
-        /// 获取中止事项项目数
-        /// </summary>
-        /// <returns></returns>
-        public int getStopCount()
-        {
-            int sum = 0;
-            foreach (TodoItem item in TodoItemList)
-            {
-                if (item.State == MyStates.已中止)
-                {
-                    sum++;
-                }
-            }
-            return sum;
-        }
+        #endregion
     }
     /// <summary>
     /// 事务类:文件
@@ -438,6 +393,26 @@ namespace MatterManagerClasses
     class TodoItem
     {
         /// <summary>
+        /// 数据库中的id号
+        /// </summary>
+        private int _id;
+        /// <summary>
+        /// 数据库中的id号
+        /// </summary>
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
+
+        /// <summary>
         /// 项目进度
         /// </summary>
         private MyStates _state;
@@ -554,6 +529,7 @@ namespace MatterManagerClasses
                 _stopReason = value;
             }
         }
+
 
 
 

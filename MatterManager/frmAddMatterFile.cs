@@ -30,6 +30,7 @@ namespace MatterManager
             if (isEditMode)
             {
                 //编辑模式
+                this.Text = "编辑督办事务";
                 txtTitle.Text = editMF.Title;
                 dtpBeginDate.Value = editMF.BeginDate;
                 txtDescription.Text = editMF.Describe;
@@ -44,6 +45,8 @@ namespace MatterManager
                 {
                     dgvTodoItemList.Rows.Add(i + 1, list[i].Content);
                 }
+                btnAddToList.Enabled = false;
+                btnDelete.Enabled = false;
             }
             else
             {
@@ -203,8 +206,16 @@ namespace MatterManager
             {
                 mf.FileAddr = "";
             }
-            //向数据库中新增一组Matter
-            MatterHelper.InsertMatter(mf);
+            if (isEditMode)
+            {
+                //编辑模式使用update
+                MatterHelper.UpdateMatter(mf);
+            }
+            else
+            {
+                //新增模式使用Insert,向数据库中新增一组Matter
+                MatterHelper.InsertMatter(mf);
+            }
             return true;
         }
 

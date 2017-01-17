@@ -70,10 +70,11 @@ namespace MatterManager
             int mfNum = mfList[rowNum].Id;
             for (int i = 0; i < tiList.Count; i++)
             {
+                int id = tiList[i].Id;
                 string content = tiList[i].Content;
                 string state = tiList[i].State.ToString();
 
-                dgvTodoList.Rows.Add(i + 1, content, state, mfNum);
+                dgvTodoList.Rows.Add(i + 1, content, state, mfNum, id);
             }
         }
         /// <summary>
@@ -113,7 +114,6 @@ namespace MatterManager
 
         private void btnEditMatter_Click(object sender, EventArgs e)
         {
-
             int rowNum = dgvMatterList.SelectedRows[0].Index;
             matterFiles mf = mfList[rowNum];
             frmAddMatterFile frm = new MatterManager.frmAddMatterFile(mf);
@@ -122,7 +122,34 @@ namespace MatterManager
 
         private void btnNewTodo_Click(object sender, EventArgs e)
         {
-            
+            if (dgvTodoList.Rows.Count != 0)
+            {
+                int mfNum = Convert.ToInt32(dgvTodoList.SelectedRows[0].Cells["mfNum"].Value);
+                frmAddNewTodoItem f = new frmAddNewTodoItem(mfNum);
+                f.Text = "新增待办事项";
+                f.ShowDialog(this);
+                refreshMatterList();
+            }
+        }
+
+        private void btnEditTodo_Click(object sender, EventArgs e)
+        {
+            if (dgvTodoList.Rows.Count != 0)
+            {
+                int todoId = Convert.ToInt32(dgvTodoList.SelectedRows[0].Cells["todoId"].Value);
+                int mfRowNum = dgvMatterList.SelectedRows[0].Index;
+                matterFiles mf = mfList[mfRowNum];
+                TodoItem ti = mf.TodoItemList[dgvTodoList.SelectedRows[0].Index];
+                frmAddNewTodoItem f = new frmAddNewTodoItem(ti, todoId);
+                f.Text = "编辑待办事项";
+                f.ShowDialog(this);
+                refreshMatterList();
+            }
+        }
+
+        private void btnDeleteTodo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

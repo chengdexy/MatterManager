@@ -38,20 +38,21 @@
             this.btnDelMatter = new System.Windows.Forms.Button();
             this.btnNewMatter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnEditTodo = new System.Windows.Forms.Button();
+            this.btnDeleteTodo = new System.Windows.Forms.Button();
+            this.btnNewTodo = new System.Windows.Forms.Button();
             this.dgvTodoList = new System.Windows.Forms.DataGridView();
-            this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvHistoryList = new System.Windows.Forms.DataGridView();
             this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.联系日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewTodo = new System.Windows.Forms.Button();
-            this.btnDeleteTodo = new System.Windows.Forms.Button();
-            this.btnEditTodo = new System.Windows.Forms.Button();
+            this.todo编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.todo状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.todoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -159,6 +160,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待办事项详情：";
             // 
+            // btnEditTodo
+            // 
+            this.btnEditTodo.Location = new System.Drawing.Point(675, 78);
+            this.btnEditTodo.Name = "btnEditTodo";
+            this.btnEditTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnEditTodo.TabIndex = 3;
+            this.btnEditTodo.Text = "详情/编辑";
+            this.btnEditTodo.UseVisualStyleBackColor = true;
+            this.btnEditTodo.Click += new System.EventHandler(this.btnEditTodo_Click);
+            // 
+            // btnDeleteTodo
+            // 
+            this.btnDeleteTodo.Location = new System.Drawing.Point(675, 49);
+            this.btnDeleteTodo.Name = "btnDeleteTodo";
+            this.btnDeleteTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteTodo.TabIndex = 2;
+            this.btnDeleteTodo.Text = "删除选中";
+            this.btnDeleteTodo.UseVisualStyleBackColor = true;
+            this.btnDeleteTodo.Click += new System.EventHandler(this.btnDeleteTodo_Click);
+            // 
+            // btnNewTodo
+            // 
+            this.btnNewTodo.Location = new System.Drawing.Point(675, 20);
+            this.btnNewTodo.Name = "btnNewTodo";
+            this.btnNewTodo.Size = new System.Drawing.Size(75, 23);
+            this.btnNewTodo.TabIndex = 1;
+            this.btnNewTodo.Text = "新增待办";
+            this.btnNewTodo.UseVisualStyleBackColor = true;
+            this.btnNewTodo.Click += new System.EventHandler(this.btnNewTodo_Click);
+            // 
             // dgvTodoList
             // 
             this.dgvTodoList.AllowUserToAddRows = false;
@@ -168,7 +199,8 @@
             this.todo编号,
             this.内容,
             this.todo状态,
-            this.mfNum});
+            this.mfNum,
+            this.todoId});
             this.dgvTodoList.Location = new System.Drawing.Point(6, 20);
             this.dgvTodoList.Name = "dgvTodoList";
             this.dgvTodoList.ReadOnly = true;
@@ -176,31 +208,6 @@
             this.dgvTodoList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTodoList.Size = new System.Drawing.Size(663, 147);
             this.dgvTodoList.TabIndex = 0;
-            // 
-            // todo编号
-            // 
-            this.todo编号.HeaderText = "编号";
-            this.todo编号.Name = "todo编号";
-            this.todo编号.ReadOnly = true;
-            // 
-            // 内容
-            // 
-            this.内容.HeaderText = "内容";
-            this.内容.Name = "内容";
-            this.内容.ReadOnly = true;
-            // 
-            // todo状态
-            // 
-            this.todo状态.HeaderText = "状态";
-            this.todo状态.Name = "todo状态";
-            this.todo状态.ReadOnly = true;
-            // 
-            // mfNum
-            // 
-            this.mfNum.HeaderText = "mfNum";
-            this.mfNum.Name = "mfNum";
-            this.mfNum.ReadOnly = true;
-            this.mfNum.Visible = false;
             // 
             // groupBox3
             // 
@@ -255,33 +262,37 @@
             this.history_mfNum.ReadOnly = true;
             this.history_mfNum.Visible = false;
             // 
-            // btnNewTodo
+            // todo编号
             // 
-            this.btnNewTodo.Location = new System.Drawing.Point(675, 20);
-            this.btnNewTodo.Name = "btnNewTodo";
-            this.btnNewTodo.Size = new System.Drawing.Size(75, 23);
-            this.btnNewTodo.TabIndex = 1;
-            this.btnNewTodo.Text = "新增待办";
-            this.btnNewTodo.UseVisualStyleBackColor = true;
-            this.btnNewTodo.Click += new System.EventHandler(this.btnNewTodo_Click);
+            this.todo编号.HeaderText = "编号";
+            this.todo编号.Name = "todo编号";
+            this.todo编号.ReadOnly = true;
             // 
-            // btnDeleteTodo
+            // 内容
             // 
-            this.btnDeleteTodo.Location = new System.Drawing.Point(675, 49);
-            this.btnDeleteTodo.Name = "btnDeleteTodo";
-            this.btnDeleteTodo.Size = new System.Drawing.Size(75, 23);
-            this.btnDeleteTodo.TabIndex = 2;
-            this.btnDeleteTodo.Text = "删除选中";
-            this.btnDeleteTodo.UseVisualStyleBackColor = true;
+            this.内容.HeaderText = "内容";
+            this.内容.Name = "内容";
+            this.内容.ReadOnly = true;
             // 
-            // btnEditTodo
+            // todo状态
             // 
-            this.btnEditTodo.Location = new System.Drawing.Point(675, 78);
-            this.btnEditTodo.Name = "btnEditTodo";
-            this.btnEditTodo.Size = new System.Drawing.Size(75, 23);
-            this.btnEditTodo.TabIndex = 3;
-            this.btnEditTodo.Text = "详情/编辑";
-            this.btnEditTodo.UseVisualStyleBackColor = true;
+            this.todo状态.HeaderText = "状态";
+            this.todo状态.Name = "todo状态";
+            this.todo状态.ReadOnly = true;
+            // 
+            // mfNum
+            // 
+            this.mfNum.HeaderText = "mfNum";
+            this.mfNum.Name = "mfNum";
+            this.mfNum.ReadOnly = true;
+            this.mfNum.Visible = false;
+            // 
+            // todoId
+            // 
+            this.todoId.HeaderText = "todoId";
+            this.todoId.Name = "todoId";
+            this.todoId.ReadOnly = true;
+            this.todoId.Visible = false;
             // 
             // frmMatterManager
             // 
@@ -316,10 +327,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 标题;
         private System.Windows.Forms.DataGridViewTextBoxColumn 开始日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
-        private System.Windows.Forms.DataGridViewTextBoxColumn todo编号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 内容;
-        private System.Windows.Forms.DataGridViewTextBoxColumn todo状态;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mfNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn history编号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 反馈内容;
@@ -330,5 +337,10 @@
         private System.Windows.Forms.Button btnNewTodo;
         private System.Windows.Forms.Button btnDeleteTodo;
         private System.Windows.Forms.Button btnEditTodo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn todo编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 内容;
+        private System.Windows.Forms.DataGridViewTextBoxColumn todo状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mfNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn todoId;
     }
 }
