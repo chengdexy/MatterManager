@@ -49,6 +49,7 @@
             this.mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.todoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnEditHistory = new System.Windows.Forms.Button();
             this.btnAddHistory = new System.Windows.Forms.Button();
             this.dgvHistoryList = new System.Windows.Forms.DataGridView();
             this.history编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +57,6 @@
             this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEditHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,6 +77,7 @@
             this.状态,
             this.mId});
             this.dgvMatterList.Location = new System.Drawing.Point(6, 20);
+            this.dgvMatterList.MultiSelect = false;
             this.dgvMatterList.Name = "dgvMatterList";
             this.dgvMatterList.ReadOnly = true;
             this.dgvMatterList.RowTemplate.Height = 23;
@@ -214,6 +215,7 @@
             this.mfNum,
             this.todoId});
             this.dgvTodoList.Location = new System.Drawing.Point(6, 20);
+            this.dgvTodoList.MultiSelect = false;
             this.dgvTodoList.Name = "dgvTodoList";
             this.dgvTodoList.ReadOnly = true;
             this.dgvTodoList.RowTemplate.Height = 23;
@@ -265,6 +267,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "督办反馈记录：";
             // 
+            // btnEditHistory
+            // 
+            this.btnEditHistory.Location = new System.Drawing.Point(672, 49);
+            this.btnEditHistory.Name = "btnEditHistory";
+            this.btnEditHistory.Size = new System.Drawing.Size(75, 23);
+            this.btnEditHistory.TabIndex = 2;
+            this.btnEditHistory.Text = "编辑内容";
+            this.btnEditHistory.UseVisualStyleBackColor = true;
+            this.btnEditHistory.Click += new System.EventHandler(this.btnEditHistory_Click);
+            // 
             // btnAddHistory
             // 
             this.btnAddHistory.Location = new System.Drawing.Point(672, 20);
@@ -287,6 +299,7 @@
             this.history_mfNum,
             this.hId});
             this.dgvHistoryList.Location = new System.Drawing.Point(3, 17);
+            this.dgvHistoryList.MultiSelect = false;
             this.dgvHistoryList.Name = "dgvHistoryList";
             this.dgvHistoryList.ReadOnly = true;
             this.dgvHistoryList.RowTemplate.Height = 23;
@@ -325,16 +338,6 @@
             this.hId.Name = "hId";
             this.hId.ReadOnly = true;
             this.hId.Visible = false;
-            // 
-            // btnEditHistory
-            // 
-            this.btnEditHistory.Location = new System.Drawing.Point(672, 49);
-            this.btnEditHistory.Name = "btnEditHistory";
-            this.btnEditHistory.Size = new System.Drawing.Size(75, 23);
-            this.btnEditHistory.TabIndex = 2;
-            this.btnEditHistory.Text = "编辑内容";
-            this.btnEditHistory.UseVisualStyleBackColor = true;
-            this.btnEditHistory.Click += new System.EventHandler(this.btnEditHistory_Click);
             // 
             // frmMatterManager
             // 

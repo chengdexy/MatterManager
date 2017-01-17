@@ -169,7 +169,7 @@ namespace MatterManagerClasses
         #region 构造函数
         public Matter()
         {
-            BeginDate = DateTime.Now;
+            BeginDate = DateTime.Today;
             State = MyStates.办理中;
             TodoItemList = new List<TodoItem>();
             HistoryRecord = new List<SuperviseRecord>();
@@ -178,7 +178,7 @@ namespace MatterManagerClasses
         public Matter(string title, Leadman leadman)
         {
             Title = title;
-            BeginDate = DateTime.Now;
+            BeginDate = DateTime.Today ;
             State = MyStates.办理中;
             TodoItemList = new List<TodoItem>();
             HistoryRecord = new List<SuperviseRecord>();
@@ -550,13 +550,13 @@ namespace MatterManagerClasses
         public void setItemDone(string doneDescription)
         {
             State = MyStates.已办结;
-            DoneDate = DateTime.Now;
+            DoneDate = DateTime.Today ;
             DoneDescription = doneDescription;
         }
         public void setItemStop(string stopReason)
         {
             State = MyStates.已中止;
-            StopDate = DateTime.Now;
+            StopDate = DateTime.Today ;
             StopReason = stopReason;
         }
     }

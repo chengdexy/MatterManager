@@ -52,7 +52,7 @@ namespace MatterManager
             {
                 //新建模式
                 //date time picker时间显示当前时间
-                dtpBeginDate.Value = DateTime.Now;
+                dtpBeginDate.Value = DateTime.Today ;
                 //清除data grid view控件中的空行
                 dgvTodoItemList.Rows.Clear();
             }
@@ -117,7 +117,7 @@ namespace MatterManager
             txtDescription.Text = "";
             txtFileNumber.Text = "";
             txtNewItemContent.Text = "";
-            dtpBeginDate.Value = DateTime.Now;
+            dtpBeginDate.Value = DateTime.Today ;
             ofdUploadFile.FileName = "";
             lblPathOfUploaded.Text = "请点击右侧按钮上传文件电子版";
             dgvTodoItemList.Rows.Clear();

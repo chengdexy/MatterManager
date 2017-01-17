@@ -15,9 +15,16 @@ namespace MatterManager
     public partial class frmMatterManager : Form
     {
         private static List<matterFiles> mfList = new List<matterFiles>();
+        private static int mfIdToShow = -1;
 
         public frmMatterManager()
         {
+            InitializeComponent();
+        }
+
+        public frmMatterManager(int mfNum)
+        {
+            mfIdToShow = mfNum;
             InitializeComponent();
         }
 
@@ -25,6 +32,19 @@ namespace MatterManager
         {
             //初始化
             refreshMatterList();
+            if (mfIdToShow != -1)
+            {
+                for (int i = 0; i < dgvMatterList.Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvMatterList.Rows[i].Cells["mId"].Value) == mfIdToShow)
+                    {
+                        dgvMatterList.Rows[i].Selected = true;
+                        refreshTodoList(i);
+                        refreshHistoryList(i);
+                        break;
+                    }
+                }
+            }
 
         }
         /// <summary>

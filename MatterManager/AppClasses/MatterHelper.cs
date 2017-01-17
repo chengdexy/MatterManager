@@ -7,6 +7,7 @@ using MatterManagerClasses;
 using DatabaseHelpers;
 using System.Data.OleDb;
 using System.IO;
+using DateTimeHelpers;
 
 namespace MatterHelpers
 {
@@ -70,6 +71,42 @@ namespace MatterHelpers
                 mf.FileAddr = dr["filePath"].ToString();
                 mf.Leader = new Leadman(dr["leadername"].ToString(), dr["leaderpost"].ToString());
                 list.Add(mf);
+            }
+            dr.Close();
+            for (int i = 0; i < list.Count; i++)
+            {
+                matterFiles mf = list[i];
+                mf.TodoItemList = getTodoList(mf.Id);
+                mf.HistoryRecord = getHistoryList(mf.Id);
+            }
+            return list;
+        }
+        /// <summary>
+        /// 获取今天需要提醒的Matter
+        /// </summary>
+        /// <returns>MatterList</returns>
+        public static List<matterFiles> getAllNeedAlertMatters()
+        {
+            OleDbDataReader dr = null;
+            List<matterFiles> list = new List<matterFiles>();
+            string sqlstr = "select * from tbMatter where state='0'";
+            dr = OleDbHelper.ExecuteReader(sqlstr);
+            while (dr.Read())
+            {
+                matterFiles mf = new matterFiles();
+                mf.Id = Convert.ToInt32(dr["id"]);
+                mf.Title = dr["title"].ToString();
+                mf.Describe = dr["description"].ToString();
+                mf.BeginDate = Convert.ToDateTime(dr["beginDate"]);
+                mf.State = (MyStates)Convert.ToInt32(dr["state"]);
+                mf.HowManyHoursToRemind = Convert.ToInt32(dr["remind"]);
+                mf.FileNum = dr["fileNum"].ToString();
+                mf.FileAddr = dr["filePath"].ToString();
+                mf.Leader = new Leadman(dr["leadername"].ToString(), dr["leaderpost"].ToString());
+                if (DateTimeHelper.isNeedAlert(mf.BeginDate, mf.HowManyHoursToRemind))
+                {
+                    list.Add(mf);
+                }
             }
             dr.Close();
             for (int i = 0; i < list.Count; i++)

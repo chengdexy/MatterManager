@@ -35,6 +35,8 @@
             this.牵头人toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.退出程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.今日督办toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +53,8 @@
             // tsmSystem
             // 
             this.tsmSystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.今日督办toolStripMenuItem1,
+            this.toolStripSeparator2,
             this.新增事务ToolStripMenuItem,
             this.事务管理ToolStripMenuItem1,
             this.牵头人toolStripMenuItem1,
@@ -93,6 +97,18 @@
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
+            // 今日督办toolStripMenuItem1
+            // 
+            this.今日督办toolStripMenuItem1.Name = "今日督办toolStripMenuItem1";
+            this.今日督办toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.今日督办toolStripMenuItem1.Text = "今日督办";
+            this.今日督办toolStripMenuItem1.Click += new System.EventHandler(this.今日督办toolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -104,6 +120,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MatterManager";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.ResumeLayout(false);
@@ -120,6 +137,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 退出程序ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 牵头人toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 今日督办toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

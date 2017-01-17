@@ -43,5 +43,19 @@ namespace MatterManager
             f.MdiParent = this;
             f.Show();
         }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            frmTodayToDo f = new frmTodayToDo();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void 今日督办toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmTodayToDo f = new frmTodayToDo();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }
