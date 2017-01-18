@@ -49,10 +49,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0EE1F93100EF4B5012CD16ED3FD5E608DB12E02B</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>3BCA59410E95B4C4F461B7CECF1E454B0E5A2ADA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>MatterManager_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>MatterManager_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -61,9 +61,12 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,6 +82,14 @@
     <Compile Include="AppClasses\DateTimeHelper.cs" />
     <Compile Include="AppClasses\MatterHelper.cs" />
     <Compile Include="AppClasses\MatterManagerBase.cs" />
+    <Compile Include="dsReport.cs">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAddMatterFile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +126,12 @@
     <Compile Include="frmMatterManager.Designer.cs">
       <DependentUpon>frmMatterManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportPrint.Designer.cs">
+      <DependentUpon>frmReportPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTodayToDo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +140,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AppReport\reportMain.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppReport\reportSub.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddMatterFile.resx">
       <DependentUpon>frmAddMatterFile.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +164,9 @@
     <EmbeddedResource Include="frmMatterManager.resx">
       <DependentUpon>frmMatterManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportPrint.resx">
+      <DependentUpon>frmReportPrint.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTodayToDo.resx">
       <DependentUpon>frmTodayToDo.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,7 +179,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MatterManager_1_TemporaryKey.pfx" />
+    <None Include="dsReport.xsc">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
+    <None Include="dsReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReport.xss">
+      <DependentUpon>dsReport.xsd</DependentUpon>
+    </None>
     <None Include="MatterManager_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

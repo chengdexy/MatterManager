@@ -85,27 +85,52 @@ namespace DatabaseHelpers
         public static OleDbDataReader ExecuteReader(string sqlStr)
         {
             OleDbDataReader dr = null;
-            //try
-            //{
+            try
+            {
                 openCnn();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = sqlStr;
                 dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
-            //}
-            //catch
-            //{
-            //    try
-            //    {
-            //        dr.Close();
-            //        closeCnn();
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        throw new Exception(e.Message);
-            //    }
-            //}
+            }
+            catch
+            {
+                try
+                {
+                    dr.Close();
+                    closeCnn();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            }
             return dr;
         }
+        /// <summary>
+        /// 按select语句返回一个DataSet
+        /// </summary>
+        /// <param name="sqlStr">SQL语句字符串</param>
+        /// <returns>DataSet对象</returns>
+        public static DataSet ExecuteDataSet(string sqlStr)
+        {
+            openCnn();
+            OleDbDataAdapter da = new OleDbDataAdapter(sqlStr, cnn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+        /// <summary>
+        /// 根据SQL语句查询返回一个DataTable
+        /// </summary>
+        /// <param name="sqlStr">查询语句</param>
+        /// <returns>DataTable对象</returns>
+        public static DataTable ExecuteDataTable(string sqlStr)
+        {
+            DataSet ds = ExecuteDataSet(sqlStr);
+            DataTable dt = ds.Tables[0];
+            return dt;
+        }
+
         /// <summary>
         /// 执行一条sql统计查询,将查询结果第1行第1列的内容返回
         /// </summary>

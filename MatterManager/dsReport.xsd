@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReport" targetNamespace="http://tempuri.org/dsReport.xsd" xmlns:mstns="http://tempuri.org/dsReport.xsd" xmlns="http://tempuri.org/dsReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReport" msprop:Generator_UserDSName="dsReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtReport" msprop:Generator_TableClassName="dtReportDataTable" msprop:Generator_TableVarName="tabledtReport" msprop:Generator_TablePropName="dtReport" msprop:Generator_RowDeletingName="dtReportRowDeleting" msprop:Generator_RowChangingName="dtReportRowChanging" msprop:Generator_RowEvHandlerName="dtReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtReportRowDeleted" msprop:Generator_UserTableName="dtReport" msprop:Generator_RowChangedName="dtReportRowChanged" msprop:Generator_RowEvArgName="dtReportRowChangeEvent" msprop:Generator_RowClassName="dtReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="c1" msprop:Generator_ColumnVarNameInTable="columnc1" msprop:Generator_ColumnPropNameInRow="c1" msprop:Generator_ColumnPropNameInTable="c1Column" msprop:Generator_UserColumnName="c1" type="xs:string" minOccurs="0" />
+              <xs:element name="c2" msprop:Generator_ColumnVarNameInTable="columnc2" msprop:Generator_ColumnPropNameInRow="c2" msprop:Generator_ColumnPropNameInTable="c2Column" msprop:Generator_UserColumnName="c2" type="xs:string" minOccurs="0" />
+              <xs:element name="c3" msprop:Generator_ColumnVarNameInTable="columnc3" msprop:Generator_ColumnPropNameInRow="c3" msprop:Generator_ColumnPropNameInTable="c3Column" msprop:Generator_UserColumnName="c3" type="xs:string" minOccurs="0" />
+              <xs:element name="c4" msprop:Generator_ColumnVarNameInTable="columnc4" msprop:Generator_ColumnPropNameInRow="c4" msprop:Generator_ColumnPropNameInTable="c4Column" msprop:Generator_UserColumnName="c4" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dtSubReport" msprop:Generator_TableClassName="dtSubReportDataTable" msprop:Generator_TableVarName="tabledtSubReport" msprop:Generator_TablePropName="dtSubReport" msprop:Generator_RowDeletingName="dtSubReportRowDeleting" msprop:Generator_RowChangingName="dtSubReportRowChanging" msprop:Generator_RowEvHandlerName="dtSubReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtSubReportRowDeleted" msprop:Generator_UserTableName="dtSubReport" msprop:Generator_RowChangedName="dtSubReportRowChanged" msprop:Generator_RowEvArgName="dtSubReportRowChangeEvent" msprop:Generator_RowClassName="dtSubReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="sub1" msprop:Generator_ColumnVarNameInTable="columnsub1" msprop:Generator_ColumnPropNameInRow="sub1" msprop:Generator_ColumnPropNameInTable="sub1Column" msprop:Generator_UserColumnName="sub1" type="xs:string" minOccurs="0" />
+              <xs:element name="sub2" msprop:Generator_ColumnVarNameInTable="columnsub2" msprop:Generator_ColumnPropNameInRow="sub2" msprop:Generator_ColumnPropNameInTable="sub2Column" msprop:Generator_UserColumnName="sub2" type="xs:string" minOccurs="0" />
+              <xs:element name="sub3" msprop:Generator_ColumnVarNameInTable="columnsub3" msprop:Generator_ColumnPropNameInRow="sub3" msprop:Generator_ColumnPropNameInTable="sub3Column" msprop:Generator_UserColumnName="sub3" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
