@@ -12,7 +12,7 @@
               <Width>2.26187cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.04062cm</Width>
+              <Width>7.65937cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.71167cm</Width>
@@ -91,14 +91,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox4">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>titleOfSub</Value>
+                              <Value>ｃｃｃ</Value>
                               <Style>
                                 <FontFamily>微软雅黑</FontFamily>
                               </Style>
@@ -107,10 +107,9 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -256,7 +255,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Subreport Name="reportSub">
+                    <Subreport Name="Subreport3">
                       <ReportName>reportSub</ReportName>
                       <Parameters>
                         <Parameter Name="cvalue">
@@ -265,7 +264,7 @@
                       </Parameters>
                       <Style>
                         <Border>
-                          <Style>None</Style>
+                          <Style>Solid</Style>
                         </Border>
                       </Style>
                     </Subreport>
@@ -363,7 +362,7 @@
         <Top>1.18745cm</Top>
         <Left>2.03412cm</Left>
         <Height>2.09958cm</Height>
-        <Width>20.49042cm</Width>
+        <Width>18.10915cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

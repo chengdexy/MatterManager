@@ -15,34 +15,42 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="sub1">
+                    <Textbox Name="sub2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!sub1.Value</Value>
-                              <Style>
-                                <FontFamily>微软雅黑</FontFamily>
-                              </Style>
+                              <Value>=Fields!sub2.Value</Value>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>sub1</rd:DefaultName>
+                      <rd:DefaultName>sub2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                        </RightBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -64,15 +72,13 @@
         <DataSetName>dsSubReport</DataSetName>
         <Filters>
           <Filter>
-            <FilterExpression>=Fields!sub1.Value</FilterExpression>
+            <FilterExpression>=CStr(Fields!sub1.Value)</FilterExpression>
             <Operator>Equal</Operator>
             <FilterValues>
-              <FilterValue>=CStr(Parameters!cvalue.Value)</FilterValue>
+              <FilterValue>=Parameters!cvalue.Value</FilterValue>
             </FilterValues>
           </Filter>
         </Filters>
-        <Top>1.42557cm</Top>
-        <Left>1.95474cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <Style>
@@ -82,10 +88,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>0.23622in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>0.98425in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
