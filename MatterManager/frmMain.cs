@@ -53,13 +53,22 @@ namespace MatterManager
 
         private void 今日督办toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //frmTodayToDo f = new frmTodayToDo();
-            //f.MdiParent = this;
-            //f.Show();
+            frmTodayToDo f = new frmTodayToDo();
+            f.MdiParent = this;
+            f.Show();
+        }
 
+        private void 查询打印toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
             frmQueryMatters f = new frmQueryMatters();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout f = new MatterManager.frmAbout();
+            f.ShowDialog(this);
         }
     }
 }
