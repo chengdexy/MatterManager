@@ -126,6 +126,12 @@
     <Compile Include="frmMatterManager.Designer.cs">
       <DependentUpon>frmMatterManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQueryMatters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryMatters.Designer.cs">
+      <DependentUpon>frmQueryMatters.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportPrint.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AppReport\reportHistory.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppReport\reportMain.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -163,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMatterManager.resx">
       <DependentUpon>frmMatterManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryMatters.resx">
+      <DependentUpon>frmQueryMatters.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportPrint.resx">
       <DependentUpon>frmReportPrint.cs</DependentUpon>

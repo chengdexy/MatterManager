@@ -61,7 +61,7 @@
             this.ClientSize = new System.Drawing.Size(826, 570);
             this.Controls.Add(this.rView);
             this.Name = "frmReportPrint";
-            this.Text = "frmReportPrint";
+            this.Text = "打印预览";
             this.Load += new System.EventHandler(this.frmReportPrint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtReportBindingSource)).EndInit();

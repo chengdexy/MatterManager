@@ -46,12 +46,9 @@ namespace MatterManager
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //frmTodayToDo f = new frmTodayToDo();
-            //f.MdiParent = this;
-            //f.Show();
-
-            frmReportPrint f = new frmReportPrint();
-            f.ShowDialog();
+            frmTodayToDo f = new frmTodayToDo();
+            f.MdiParent = this;
+            f.Show();
         }
 
         private void 今日督办toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -60,8 +57,9 @@ namespace MatterManager
             //f.MdiParent = this;
             //f.Show();
 
-            frmReportPrint f = new frmReportPrint();
-            f.ShowDialog();
+            frmQueryMatters f = new frmQueryMatters();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }

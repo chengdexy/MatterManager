@@ -28,6 +28,8 @@ namespace MatterManager {
         
         private dtSubReportDataTable tabledtSubReport;
         
+        private dsSubHistoryDataTable tabledsSubHistory;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace MatterManager {
                 }
                 if ((ds.Tables["dtSubReport"] != null)) {
                     base.Tables.Add(new dtSubReportDataTable(ds.Tables["dtSubReport"]));
+                }
+                if ((ds.Tables["dsSubHistory"] != null)) {
+                    base.Tables.Add(new dsSubHistoryDataTable(ds.Tables["dsSubHistory"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -97,6 +102,16 @@ namespace MatterManager {
         public dtSubReportDataTable dtSubReport {
             get {
                 return this.tabledtSubReport;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public dsSubHistoryDataTable dsSubHistory {
+            get {
+                return this.tabledsSubHistory;
             }
         }
         
@@ -173,6 +188,9 @@ namespace MatterManager {
                 if ((ds.Tables["dtSubReport"] != null)) {
                     base.Tables.Add(new dtSubReportDataTable(ds.Tables["dtSubReport"]));
                 }
+                if ((ds.Tables["dsSubHistory"] != null)) {
+                    base.Tables.Add(new dsSubHistoryDataTable(ds.Tables["dsSubHistory"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -218,6 +236,12 @@ namespace MatterManager {
                     this.tabledtSubReport.InitVars();
                 }
             }
+            this.tabledsSubHistory = ((dsSubHistoryDataTable)(base.Tables["dsSubHistory"]));
+            if ((initTable == true)) {
+                if ((this.tabledsSubHistory != null)) {
+                    this.tabledsSubHistory.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -232,6 +256,8 @@ namespace MatterManager {
             base.Tables.Add(this.tabledtReport);
             this.tabledtSubReport = new dtSubReportDataTable();
             base.Tables.Add(this.tabledtSubReport);
+            this.tabledsSubHistory = new dsSubHistoryDataTable();
+            base.Tables.Add(this.tabledsSubHistory);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -243,6 +269,12 @@ namespace MatterManager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializedtSubReport() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializedsSubHistory() {
             return false;
         }
         
@@ -307,6 +339,9 @@ namespace MatterManager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void dtSubReportRowChangeEventHandler(object sender, dtSubReportRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void dsSubHistoryRowChangeEventHandler(object sender, dsSubHistoryRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -314,13 +349,13 @@ namespace MatterManager {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class dtReportDataTable : global::System.Data.TypedTableBase<dtReportRow> {
             
-            private global::System.Data.DataColumn columnc1;
+            private global::System.Data.DataColumn columnbeginDate;
             
-            private global::System.Data.DataColumn columnc2;
+            private global::System.Data.DataColumn columntitle;
             
-            private global::System.Data.DataColumn columnc3;
+            private global::System.Data.DataColumn columnstate;
             
-            private global::System.Data.DataColumn columnc4;
+            private global::System.Data.DataColumn columnid;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -357,33 +392,33 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn c1Column {
+            public global::System.Data.DataColumn beginDateColumn {
                 get {
-                    return this.columnc1;
+                    return this.columnbeginDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn c2Column {
+            public global::System.Data.DataColumn titleColumn {
                 get {
-                    return this.columnc2;
+                    return this.columntitle;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn c3Column {
+            public global::System.Data.DataColumn stateColumn {
                 get {
-                    return this.columnc3;
+                    return this.columnstate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn c4Column {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnc4;
+                    return this.columnid;
                 }
             }
             
@@ -424,13 +459,13 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtReportRow AdddtReportRow(string c1, string c2, string c3, string c4) {
+            public dtReportRow AdddtReportRow(string beginDate, string title, string state, string id) {
                 dtReportRow rowdtReportRow = ((dtReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        c1,
-                        c2,
-                        c3,
-                        c4};
+                        beginDate,
+                        title,
+                        state,
+                        id};
                 rowdtReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtReportRow);
                 return rowdtReportRow;
@@ -453,23 +488,23 @@ namespace MatterManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnc1 = base.Columns["c1"];
-                this.columnc2 = base.Columns["c2"];
-                this.columnc3 = base.Columns["c3"];
-                this.columnc4 = base.Columns["c4"];
+                this.columnbeginDate = base.Columns["beginDate"];
+                this.columntitle = base.Columns["title"];
+                this.columnstate = base.Columns["state"];
+                this.columnid = base.Columns["id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnc1 = new global::System.Data.DataColumn("c1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnc1);
-                this.columnc2 = new global::System.Data.DataColumn("c2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnc2);
-                this.columnc3 = new global::System.Data.DataColumn("c3", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnc3);
-                this.columnc4 = new global::System.Data.DataColumn("c4", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnc4);
+                this.columnbeginDate = new global::System.Data.DataColumn("beginDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbeginDate);
+                this.columntitle = new global::System.Data.DataColumn("title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntitle);
+                this.columnstate = new global::System.Data.DataColumn("state", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstate);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -603,11 +638,9 @@ namespace MatterManager {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class dtSubReportDataTable : global::System.Data.TypedTableBase<dtSubReportRow> {
             
-            private global::System.Data.DataColumn columnsub1;
+            private global::System.Data.DataColumn columncontent;
             
-            private global::System.Data.DataColumn columnsub2;
-            
-            private global::System.Data.DataColumn columnsub3;
+            private global::System.Data.DataColumn columnmfNum;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -644,25 +677,17 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn sub1Column {
+            public global::System.Data.DataColumn contentColumn {
                 get {
-                    return this.columnsub1;
+                    return this.columncontent;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn sub2Column {
+            public global::System.Data.DataColumn mfNumColumn {
                 get {
-                    return this.columnsub2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn sub3Column {
-                get {
-                    return this.columnsub3;
+                    return this.columnmfNum;
                 }
             }
             
@@ -703,12 +728,11 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtSubReportRow AdddtSubReportRow(string sub1, string sub2, string sub3) {
+            public dtSubReportRow AdddtSubReportRow(string content, string mfNum) {
                 dtSubReportRow rowdtSubReportRow = ((dtSubReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        sub1,
-                        sub2,
-                        sub3};
+                        content,
+                        mfNum};
                 rowdtSubReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtSubReportRow);
                 return rowdtSubReportRow;
@@ -731,20 +755,17 @@ namespace MatterManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnsub1 = base.Columns["sub1"];
-                this.columnsub2 = base.Columns["sub2"];
-                this.columnsub3 = base.Columns["sub3"];
+                this.columncontent = base.Columns["content"];
+                this.columnmfNum = base.Columns["mfNum"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnsub1 = new global::System.Data.DataColumn("sub1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsub1);
-                this.columnsub2 = new global::System.Data.DataColumn("sub2", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsub2);
-                this.columnsub3 = new global::System.Data.DataColumn("sub3", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsub3);
+                this.columncontent = new global::System.Data.DataColumn("content", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontent);
+                this.columnmfNum = new global::System.Data.DataColumn("mfNum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmfNum);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -872,6 +893,267 @@ namespace MatterManager {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class dsSubHistoryDataTable : global::System.Data.TypedTableBase<dsSubHistoryRow> {
+            
+            private global::System.Data.DataColumn columnresult;
+            
+            private global::System.Data.DataColumn columnmfNum;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryDataTable() {
+                this.TableName = "dsSubHistory";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal dsSubHistoryDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected dsSubHistoryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn resultColumn {
+                get {
+                    return this.columnresult;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mfNumColumn {
+                get {
+                    return this.columnmfNum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryRow this[int index] {
+                get {
+                    return ((dsSubHistoryRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event dsSubHistoryRowChangeEventHandler dsSubHistoryRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event dsSubHistoryRowChangeEventHandler dsSubHistoryRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event dsSubHistoryRowChangeEventHandler dsSubHistoryRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event dsSubHistoryRowChangeEventHandler dsSubHistoryRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AdddsSubHistoryRow(dsSubHistoryRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryRow AdddsSubHistoryRow(string result, string mfNum) {
+                dsSubHistoryRow rowdsSubHistoryRow = ((dsSubHistoryRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        result,
+                        mfNum};
+                rowdsSubHistoryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdsSubHistoryRow);
+                return rowdsSubHistoryRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                dsSubHistoryDataTable cln = ((dsSubHistoryDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new dsSubHistoryDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnresult = base.Columns["result"];
+                this.columnmfNum = base.Columns["mfNum"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnresult = new global::System.Data.DataColumn("result", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnresult);
+                this.columnmfNum = new global::System.Data.DataColumn("mfNum", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmfNum);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryRow NewdsSubHistoryRow() {
+                return ((dsSubHistoryRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new dsSubHistoryRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(dsSubHistoryRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.dsSubHistoryRowChanged != null)) {
+                    this.dsSubHistoryRowChanged(this, new dsSubHistoryRowChangeEvent(((dsSubHistoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.dsSubHistoryRowChanging != null)) {
+                    this.dsSubHistoryRowChanging(this, new dsSubHistoryRowChangeEvent(((dsSubHistoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.dsSubHistoryRowDeleted != null)) {
+                    this.dsSubHistoryRowDeleted(this, new dsSubHistoryRowChangeEvent(((dsSubHistoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.dsSubHistoryRowDeleting != null)) {
+                    this.dsSubHistoryRowDeleting(this, new dsSubHistoryRowChangeEvent(((dsSubHistoryRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemovedsSubHistoryRow(dsSubHistoryRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsReport ds = new dsReport();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "dsSubHistoryDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class dtReportRow : global::System.Data.DataRow {
@@ -887,114 +1169,114 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string c1 {
+            public string beginDate {
                 get {
                     try {
-                        return ((string)(this[this.tabledtReport.c1Column]));
+                        return ((string)(this[this.tabledtReport.beginDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“c1”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“beginDate”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtReport.c1Column] = value;
+                    this[this.tabledtReport.beginDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string c2 {
+            public string title {
                 get {
                     try {
-                        return ((string)(this[this.tabledtReport.c2Column]));
+                        return ((string)(this[this.tabledtReport.titleColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“c2”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“title”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtReport.c2Column] = value;
+                    this[this.tabledtReport.titleColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string c3 {
+            public string state {
                 get {
                     try {
-                        return ((string)(this[this.tabledtReport.c3Column]));
+                        return ((string)(this[this.tabledtReport.stateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“c3”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“state”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtReport.c3Column] = value;
+                    this[this.tabledtReport.stateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string c4 {
+            public string id {
                 get {
                     try {
-                        return ((string)(this[this.tabledtReport.c4Column]));
+                        return ((string)(this[this.tabledtReport.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“c4”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtReport”中列“id”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtReport.c4Column] = value;
+                    this[this.tabledtReport.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isc1Null() {
-                return this.IsNull(this.tabledtReport.c1Column);
+            public bool IsbeginDateNull() {
+                return this.IsNull(this.tabledtReport.beginDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setc1Null() {
-                this[this.tabledtReport.c1Column] = global::System.Convert.DBNull;
+            public void SetbeginDateNull() {
+                this[this.tabledtReport.beginDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isc2Null() {
-                return this.IsNull(this.tabledtReport.c2Column);
+            public bool IstitleNull() {
+                return this.IsNull(this.tabledtReport.titleColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setc2Null() {
-                this[this.tabledtReport.c2Column] = global::System.Convert.DBNull;
+            public void SettitleNull() {
+                this[this.tabledtReport.titleColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isc3Null() {
-                return this.IsNull(this.tabledtReport.c3Column);
+            public bool IsstateNull() {
+                return this.IsNull(this.tabledtReport.stateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setc3Null() {
-                this[this.tabledtReport.c3Column] = global::System.Convert.DBNull;
+            public void SetstateNull() {
+                this[this.tabledtReport.stateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isc4Null() {
-                return this.IsNull(this.tabledtReport.c4Column);
+            public bool IsidNull() {
+                return this.IsNull(this.tabledtReport.idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setc4Null() {
-                this[this.tabledtReport.c4Column] = global::System.Convert.DBNull;
+            public void SetidNull() {
+                this[this.tabledtReport.idColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1014,86 +1296,129 @@ namespace MatterManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string sub1 {
+            public string content {
                 get {
                     try {
-                        return ((string)(this[this.tabledtSubReport.sub1Column]));
+                        return ((string)(this[this.tabledtSubReport.contentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtSubReport”中列“sub1”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtSubReport”中列“content”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtSubReport.sub1Column] = value;
+                    this[this.tabledtSubReport.contentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string sub2 {
+            public string mfNum {
                 get {
                     try {
-                        return ((string)(this[this.tabledtSubReport.sub2Column]));
+                        return ((string)(this[this.tabledtSubReport.mfNumColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtSubReport”中列“sub2”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dtSubReport”中列“mfNum”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtSubReport.sub2Column] = value;
+                    this[this.tabledtSubReport.mfNumColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string sub3 {
+            public bool IscontentNull() {
+                return this.IsNull(this.tabledtSubReport.contentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcontentNull() {
+                this[this.tabledtSubReport.contentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmfNumNull() {
+                return this.IsNull(this.tabledtSubReport.mfNumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmfNumNull() {
+                this[this.tabledtSubReport.mfNumColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class dsSubHistoryRow : global::System.Data.DataRow {
+            
+            private dsSubHistoryDataTable tabledsSubHistory;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal dsSubHistoryRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabledsSubHistory = ((dsSubHistoryDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string result {
                 get {
                     try {
-                        return ((string)(this[this.tabledtSubReport.sub3Column]));
+                        return ((string)(this[this.tabledsSubHistory.resultColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“dtSubReport”中列“sub3”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dsSubHistory”中列“result”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabledtSubReport.sub3Column] = value;
+                    this[this.tabledsSubHistory.resultColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issub1Null() {
-                return this.IsNull(this.tabledtSubReport.sub1Column);
+            public string mfNum {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsSubHistory.mfNumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“dsSubHistory”中列“mfNum”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tabledsSubHistory.mfNumColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsub1Null() {
-                this[this.tabledtSubReport.sub1Column] = global::System.Convert.DBNull;
+            public bool IsresultNull() {
+                return this.IsNull(this.tabledsSubHistory.resultColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issub2Null() {
-                return this.IsNull(this.tabledtSubReport.sub2Column);
+            public void SetresultNull() {
+                this[this.tabledsSubHistory.resultColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsub2Null() {
-                this[this.tabledtSubReport.sub2Column] = global::System.Convert.DBNull;
+            public bool IsmfNumNull() {
+                return this.IsNull(this.tabledsSubHistory.mfNumColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issub3Null() {
-                return this.IsNull(this.tabledtSubReport.sub3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsub3Null() {
-                this[this.tabledtSubReport.sub3Column] = global::System.Convert.DBNull;
+            public void SetmfNumNull() {
+                this[this.tabledsSubHistory.mfNumColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1151,6 +1476,40 @@ namespace MatterManager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public dtSubReportRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class dsSubHistoryRowChangeEvent : global::System.EventArgs {
+            
+            private dsSubHistoryRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryRowChangeEvent(dsSubHistoryRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public dsSubHistoryRow Row {
                 get {
                     return this.eventRow;
                 }
