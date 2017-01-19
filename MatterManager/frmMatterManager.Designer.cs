@@ -348,6 +348,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmMatterManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "督办事务管理：";
             this.Load += new System.EventHandler(this.frmMatterManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).EndInit();

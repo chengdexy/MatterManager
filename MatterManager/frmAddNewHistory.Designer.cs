@@ -101,6 +101,7 @@
             this.Controls.Add(this.dtpConnect);
             this.Controls.Add(this.label1);
             this.Name = "frmAddNewHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmAddNewHistory";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddNewHistory_FormClosing);
             this.Load += new System.EventHandler(this.frmAddNewHistory_Load);

@@ -178,6 +178,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmLeadmanManager";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "牵头人管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLeadmanManager_FormClosed);
             this.Load += new System.EventHandler(this.frmLeadmanManager_Load);

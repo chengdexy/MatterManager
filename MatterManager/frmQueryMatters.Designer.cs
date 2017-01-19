@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.chkAllDate = new System.Windows.Forms.CheckBox();
-            this.btnQuery = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtKeyWords = new System.Windows.Forms.TextBox();
-            this.chkDoing = new System.Windows.Forms.CheckBox();
-            this.chkDone = new System.Windows.Forms.CheckBox();
             this.chkStop = new System.Windows.Forms.CheckBox();
-            this.dgvMatters = new System.Windows.Forms.DataGridView();
+            this.chkDone = new System.Windows.Forms.CheckBox();
+            this.chkDoing = new System.Windows.Forms.CheckBox();
+            this.txtKeyWords = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.chkAllDate = new System.Windows.Forms.CheckBox();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvTodoList = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMatters = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatters)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,118 +78,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
             // 
-            // groupBox2
+            // chkStop
             // 
-            this.groupBox2.Controls.Add(this.dgvTodoList);
-            this.groupBox2.Controls.Add(this.dgvMatters);
-            this.groupBox2.Location = new System.Drawing.Point(12, 117);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(602, 258);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "查询结果";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(434, 381);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "预览/打印";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(515, 381);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "关闭";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "时间段：";
-            // 
-            // dtpFrom
-            // 
-            this.dtpFrom.CustomFormat = "yyyy年MM月dd日";
-            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(80, 20);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(107, 21);
-            this.dtpFrom.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(11, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "-";
-            // 
-            // dtpTo
-            // 
-            this.dtpTo.CustomFormat = "yyyy年MM月dd日";
-            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(210, 20);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(107, 21);
-            this.dtpTo.TabIndex = 3;
-            // 
-            // chkAllDate
-            // 
-            this.chkAllDate.AutoSize = true;
-            this.chkAllDate.Location = new System.Drawing.Point(323, 25);
-            this.chkAllDate.Name = "chkAllDate";
-            this.chkAllDate.Size = new System.Drawing.Size(72, 16);
-            this.chkAllDate.TabIndex = 4;
-            this.chkAllDate.Text = "所有时间";
-            this.chkAllDate.UseVisualStyleBackColor = true;
-            // 
-            // btnQuery
-            // 
-            this.btnQuery.Location = new System.Drawing.Point(521, 33);
-            this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(75, 40);
-            this.btnQuery.TabIndex = 5;
-            this.btnQuery.Text = "查询";
-            this.btnQuery.UseVisualStyleBackColor = true;
-            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 61);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "关键字：";
-            // 
-            // txtKeyWords
-            // 
-            this.txtKeyWords.Location = new System.Drawing.Point(80, 58);
-            this.txtKeyWords.Name = "txtKeyWords";
-            this.txtKeyWords.Size = new System.Drawing.Size(237, 21);
-            this.txtKeyWords.TabIndex = 7;
-            // 
-            // chkDoing
-            // 
-            this.chkDoing.AutoSize = true;
-            this.chkDoing.Location = new System.Drawing.Point(323, 61);
-            this.chkDoing.Name = "chkDoing";
-            this.chkDoing.Size = new System.Drawing.Size(60, 16);
-            this.chkDoing.TabIndex = 8;
-            this.chkDoing.Text = "办理中";
-            this.chkDoing.UseVisualStyleBackColor = true;
+            this.chkStop.AutoSize = true;
+            this.chkStop.Location = new System.Drawing.Point(455, 60);
+            this.chkStop.Name = "chkStop";
+            this.chkStop.Size = new System.Drawing.Size(60, 16);
+            this.chkStop.TabIndex = 10;
+            this.chkStop.Text = "已中止";
+            this.chkStop.UseVisualStyleBackColor = true;
             // 
             // chkDone
             // 
@@ -201,15 +98,136 @@
             this.chkDone.Text = "已办结";
             this.chkDone.UseVisualStyleBackColor = true;
             // 
-            // chkStop
+            // chkDoing
             // 
-            this.chkStop.AutoSize = true;
-            this.chkStop.Location = new System.Drawing.Point(455, 60);
-            this.chkStop.Name = "chkStop";
-            this.chkStop.Size = new System.Drawing.Size(60, 16);
-            this.chkStop.TabIndex = 10;
-            this.chkStop.Text = "已中止";
-            this.chkStop.UseVisualStyleBackColor = true;
+            this.chkDoing.AutoSize = true;
+            this.chkDoing.Location = new System.Drawing.Point(323, 61);
+            this.chkDoing.Name = "chkDoing";
+            this.chkDoing.Size = new System.Drawing.Size(60, 16);
+            this.chkDoing.TabIndex = 8;
+            this.chkDoing.Text = "办理中";
+            this.chkDoing.UseVisualStyleBackColor = true;
+            // 
+            // txtKeyWords
+            // 
+            this.txtKeyWords.Location = new System.Drawing.Point(80, 58);
+            this.txtKeyWords.Name = "txtKeyWords";
+            this.txtKeyWords.Size = new System.Drawing.Size(237, 21);
+            this.txtKeyWords.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(21, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "关键字：";
+            // 
+            // btnQuery
+            // 
+            this.btnQuery.Location = new System.Drawing.Point(521, 33);
+            this.btnQuery.Name = "btnQuery";
+            this.btnQuery.Size = new System.Drawing.Size(75, 40);
+            this.btnQuery.TabIndex = 5;
+            this.btnQuery.Text = "查询";
+            this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // chkAllDate
+            // 
+            this.chkAllDate.AutoSize = true;
+            this.chkAllDate.Location = new System.Drawing.Point(323, 25);
+            this.chkAllDate.Name = "chkAllDate";
+            this.chkAllDate.Size = new System.Drawing.Size(72, 16);
+            this.chkAllDate.TabIndex = 4;
+            this.chkAllDate.Text = "所有时间";
+            this.chkAllDate.UseVisualStyleBackColor = true;
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.CustomFormat = "yyyy年MM月dd日";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(210, 20);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(107, 21);
+            this.dtpTo.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(11, 12);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "-";
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.CustomFormat = "yyyy年MM月dd日";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(80, 20);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(107, 21);
+            this.dtpFrom.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "时间段：";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvTodoList);
+            this.groupBox2.Controls.Add(this.dgvMatters);
+            this.groupBox2.Location = new System.Drawing.Point(12, 117);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(602, 258);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "查询结果";
+            // 
+            // dgvTodoList
+            // 
+            this.dgvTodoList.AllowUserToAddRows = false;
+            this.dgvTodoList.AllowUserToDeleteRows = false;
+            this.dgvTodoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTodoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.dgvTodoList.Location = new System.Drawing.Point(337, 20);
+            this.dgvTodoList.Name = "dgvTodoList";
+            this.dgvTodoList.ReadOnly = true;
+            this.dgvTodoList.RowHeadersVisible = false;
+            this.dgvTodoList.RowTemplate.Height = 23;
+            this.dgvTodoList.Size = new System.Drawing.Size(259, 232);
+            this.dgvTodoList.TabIndex = 1;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "编号";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 60;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "内容";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 200;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "mfNum";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
             // 
             // dgvMatters
             // 
@@ -231,23 +249,6 @@
             this.dgvMatters.Size = new System.Drawing.Size(325, 232);
             this.dgvMatters.TabIndex = 0;
             this.dgvMatters.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMatters_CellClick);
-            // 
-            // dgvTodoList
-            // 
-            this.dgvTodoList.AllowUserToAddRows = false;
-            this.dgvTodoList.AllowUserToDeleteRows = false;
-            this.dgvTodoList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTodoList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column6,
-            this.Column7});
-            this.dgvTodoList.Location = new System.Drawing.Point(337, 20);
-            this.dgvTodoList.Name = "dgvTodoList";
-            this.dgvTodoList.ReadOnly = true;
-            this.dgvTodoList.RowHeadersVisible = false;
-            this.dgvTodoList.RowTemplate.Height = 23;
-            this.dgvTodoList.Size = new System.Drawing.Size(259, 232);
-            this.dgvTodoList.TabIndex = 1;
             // 
             // Column1
             // 
@@ -277,26 +278,25 @@
             this.Column4.ReadOnly = true;
             this.Column4.Visible = false;
             // 
-            // Column5
+            // button1
             // 
-            this.Column5.HeaderText = "编号";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 60;
+            this.button1.Location = new System.Drawing.Point(434, 381);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "预览/打印";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Column6
+            // button2
             // 
-            this.Column6.HeaderText = "内容";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 200;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "mfNum";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
+            this.button2.Location = new System.Drawing.Point(515, 381);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "关闭";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmQueryMatters
             // 
@@ -308,14 +308,15 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmQueryMatters";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "查询/打印";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQueryMatters_FormClosing);
             this.Load += new System.EventHandler(this.frmQueryMatters_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMatters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatters)).EndInit();
             this.ResumeLayout(false);
 
         }

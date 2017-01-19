@@ -97,6 +97,8 @@ namespace MatterManager
                 int rowNumber = dgvTodoItemList.RowCount + 1;
                 string rowContent = txtNewItemContent.Text;
                 dgvTodoItemList.Rows.Add(rowNumber.ToString(), rowContent);
+                txtNewItemContent.Text = "";
+                txtNewItemContent.Focus();
             }
         }
 
@@ -157,6 +159,7 @@ namespace MatterManager
 
             if (!string.IsNullOrEmpty(cboLeadman.Text))
             {
+                cboLeadman.Text=cboLeadman.Text.Replace("：", ":");
                 string[] splited = cboLeadman.Text.Split(':');
                 if (splited.Length == 2)
                 {
