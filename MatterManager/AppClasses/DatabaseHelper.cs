@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.OleDb;
 using System.Configuration;
+using System.IO;
 
 namespace DatabaseHelpers
 {
@@ -17,7 +18,26 @@ namespace DatabaseHelpers
         /// 数据库连接字符串
         /// </summary>
         private static string myConnectionString = ConfigurationManager.ConnectionStrings["conn"].ToString();
-
+        /// <summary>
+        /// 备份数据库到指定地址
+        /// </summary>
+        /// <param name="targetPath">目标位置</param>
+        public static void backupDatabase(string targetPath)
+        {
+            //获取数据库位置
+            string dbPath = Environment.CurrentDirectory + @"\AppData\Data.mdb";
+            File.Copy(dbPath, targetPath, true);
+        }
+        /// <summary>
+        /// 还原数据库
+        /// </summary>
+        /// <param name="sourcePath">备份文件地址</param>
+        public static void restoreDatabase(string sourcePath)
+        {
+            closeCnn();
+            string targetPath = Environment.CurrentDirectory + @"\AppData\Data.mdb";
+            File.Copy(sourcePath, targetPath, true);
+        }
         /// <summary>
         /// 获得并打开一个数据库连接
         /// </summary>
@@ -87,10 +107,10 @@ namespace DatabaseHelpers
             OleDbDataReader dr = null;
             //try
             //{
-                openCnn();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = sqlStr;
-                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            openCnn();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = sqlStr;
+            dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             //}
             //catch
             //{

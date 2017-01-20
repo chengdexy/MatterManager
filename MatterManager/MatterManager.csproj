@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="AppClasses\DatabaseHelper.cs" />
     <Compile Include="AppClasses\DateTimeHelper.cs" />
+    <Compile Include="AppClasses\FileAndDirectoryHelpers.cs" />
     <Compile Include="AppClasses\MatterHelper.cs" />
     <Compile Include="AppClasses\MatterManagerBase.cs" />
     <Compile Include="dsReport.cs">

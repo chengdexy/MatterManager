@@ -148,20 +148,24 @@ namespace MatterHelpers
                 string fileNum = mf.FileNum;
                 string filePath = mf.FileAddr;
                 int thisMatterNumber;
-                object obj = OleDbHelper.ExecuteScaler("select max(id) from tbMatter");
-                if (obj != DBNull.Value)
-                {
-                    thisMatterNumber = Convert.ToInt32(obj) + 1;
-                }
-                else
-                {
-                    thisMatterNumber = 1;
-                }
+                //object obj = OleDbHelper.ExecuteScaler("select max(id) from tbMatter");
+                //if (obj != DBNull.Value)
+                //{
+                //    thisMatterNumber = Convert.ToInt32(obj) + 1;
+                //}
+                //else
+                //{
+                //    //数据表为空表,先压缩数据库再执行赋值
+
+                //    thisMatterNumber = 1;
+                //}
                 //分别插入数据库中
                 //基本信息
                 string sqlStr = string.Format("insert into tbMatter(title,description,beginDate,state,remind,fileNum,filePath,leadername,leaderpost) values('{0}','{1}','{2}','{3}',{4},'{5}','{6}','{7}','{8}')",
                     title, description, beginDate.ToString(), state.ToString(), remind, fileNum, filePath, leadman.Name, leadman.ItsPost);
                 OleDbHelper.ExecuteInt(sqlStr);
+                sqlStr = "select max(id) from tbMatter";
+                thisMatterNumber = Convert.ToInt32(OleDbHelper.ExecuteScaler(sqlStr));
                 //TodoList
                 InsertTodoList(todoList, thisMatterNumber);
                 //HistoryList

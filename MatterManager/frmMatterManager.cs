@@ -53,6 +53,8 @@ namespace MatterManager
         private void refreshMatterList()
         {
             dgvMatterList.Rows.Clear();
+            dgvTodoList.Rows.Clear();
+            dgvHistoryList.Rows.Clear();
             mfList = MatterHelper.getAllMatters();
             for (int i = 0; i < mfList.Count; i++)
             {

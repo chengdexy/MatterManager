@@ -315,7 +315,8 @@ namespace MatterManagerClasses
             }
             else
             {
-                throw new Exception("此文件尚未上传过,调用download失败");
+                //文件不存在
+                return true;
             }
         }
     }
