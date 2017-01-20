@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAbout));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblVer = new System.Windows.Forms.Label();
+            this.lblLast = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,31 +56,31 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "MatterManager";
             // 
-            // label2
+            // lblVer
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "v1.0";
+            this.lblVer.AutoSize = true;
+            this.lblVer.Location = new System.Drawing.Point(153, 74);
+            this.lblVer.Name = "lblVer";
+            this.lblVer.Size = new System.Drawing.Size(29, 12);
+            this.lblVer.TabIndex = 2;
+            this.lblVer.Text = "v1.0";
             // 
-            // label3
+            // lblLast
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(188, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "2017-1-19";
+            this.lblLast.AutoSize = true;
+            this.lblLast.Location = new System.Drawing.Point(188, 74);
+            this.lblLast.Name = "lblLast";
+            this.lblLast.Size = new System.Drawing.Size(59, 12);
+            this.lblLast.TabIndex = 3;
+            this.lblLast.Text = "2017-1-19";
             // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 120);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblLast);
+            this.Controls.Add(this.lblVer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
@@ -88,6 +88,7 @@
             this.Name = "frmAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "关于";
+            this.Load += new System.EventHandler(this.frmAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -98,7 +99,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblVer;
+        private System.Windows.Forms.Label lblLast;
     }
 }
