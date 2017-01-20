@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportPrint));
             this.dsReport = new MatterManager.dsReport();
             this.dtReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rView = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -60,6 +61,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 570);
             this.Controls.Add(this.rView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReportPrint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "打印预览";

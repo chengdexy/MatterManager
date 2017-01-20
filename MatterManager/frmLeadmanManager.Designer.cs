@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLeadmanManager));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.txtPost = new System.Windows.Forms.TextBox();
@@ -177,6 +178,7 @@
             this.ClientSize = new System.Drawing.Size(495, 374);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLeadmanManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "牵头人管理";
