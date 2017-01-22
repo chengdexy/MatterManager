@@ -447,6 +447,7 @@ namespace MatterHelpers
             while (dr.Read())
             {
                 leader = new Leadman(dr["name"].ToString(), dr["itspost"].ToString());
+                leader.Id = Convert.ToInt32(dr["id"]);
                 leaderList.Add(leader);
             }
             dr.Close();

@@ -11,6 +11,7 @@ namespace MatterManager
     {
         private bool isEditMode = false;
         private matterFiles editMF;
+        private List<Leadman> leaderList;
 
         public frmAddMatterFile()
         {
@@ -27,6 +28,14 @@ namespace MatterManager
         private void frmAddMatterFile_Load(object sender, EventArgs e)
         {
             //初始化窗体内容
+
+            //获取所有已存在的Leadman信息,附加在combo box的items集合中
+            leaderList = MatterHelper.getAllLeadmans();
+            cboLeadman.DataSource = leaderList;
+            cboLeadman.DisplayMember = "Name";
+            cboLeadman.ValueMember = "Id";
+            cboLeadman.Text = "";
+
             if (isEditMode)
             {
                 //编辑模式
@@ -39,7 +48,8 @@ namespace MatterManager
                 txtFileNumber.Text = editMF.FileNum;
                 ofdUploadFile.FileName = editMF.FileAddr;
                 lblPathOfUploaded.Text = editMF.FileAddr;
-                cboLeadman.Text = editMF.Leader.Name + ":" + editMF.Leader.ItsPost;
+                cboLeadman.Text = editMF.Leader.Name;
+                txtLeaderPost.Text = editMF.Leader.ItsPost;
                 List<TodoItem> list = editMF.TodoItemList;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -52,19 +62,11 @@ namespace MatterManager
             {
                 //新建模式
                 //date time picker时间显示当前时间
-                dtpBeginDate.Value = DateTime.Today ;
+                dtpBeginDate.Value = DateTime.Today;
                 //清除data grid view控件中的空行
                 dgvTodoItemList.Rows.Clear();
             }
-            //获取所有已存在的Leadman信息,附加在combo box的items集合中
-            List<Leadman> leaderList = MatterHelper.getAllLeadmans();
-            if (leaderList.Count != 0)
-            {
-                for (int i = 0; i < leaderList.Count; i++)
-                {
-                    cboLeadman.Items.Add(leaderList[i].Name + ":" + leaderList[i].ItsPost);
-                }
-            }
+            
 
         }
 
@@ -119,7 +121,7 @@ namespace MatterManager
             txtDescription.Text = "";
             txtFileNumber.Text = "";
             txtNewItemContent.Text = "";
-            dtpBeginDate.Value = DateTime.Today ;
+            dtpBeginDate.Value = DateTime.Today;
             ofdUploadFile.FileName = "";
             lblPathOfUploaded.Text = "请点击右侧按钮上传文件电子版";
             dgvTodoItemList.Rows.Clear();
@@ -159,25 +161,15 @@ namespace MatterManager
 
             if (!string.IsNullOrEmpty(cboLeadman.Text))
             {
-                cboLeadman.Text=cboLeadman.Text.Replace("：", ":");
-                string[] splited = cboLeadman.Text.Split(':');
-                if (splited.Length == 2)
-                {
-                    string leaderName = cboLeadman.Text.Split(':')[0].Trim();
-                    string leaderPost = cboLeadman.Text.Split(':')[1].Trim();
-                    mf.Leader = new Leadman(leaderName, leaderPost);
-                }
-                else
-                {
-                    MessageBox.Show("牵头人格式错误!\n正确格式为\"牵头人姓名:牵头人职务\"(冒号为英文半角)");
-                    cboLeadman.Text = "";
-                    cboLeadman.Focus();
-                    return false;
-                }
+
+                string leaderName = cboLeadman.Text.Trim();
+                string leaderPost = txtLeaderPost.Text.Trim();
+                mf.Leader = new Leadman(leaderName, leaderPost);
+
             }
             else
             {
-                MessageBox.Show("请选择或输入牵头人信息!\n格式为\"牵头人姓名:牵头人职务\"(冒号为英文半角)");
+                MessageBox.Show("请选择或输入牵头人信息!");
                 cboLeadman.Focus();
                 return false;
             }
@@ -248,6 +240,23 @@ namespace MatterManager
         private void frmAddMatterFile_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void cboLeadman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cboLeadman.SelectedValue is Int32)
+            {
+                txtLeaderPost.Text = "";
+                foreach (Leadman leader in leaderList)
+                {
+                    if (leader.Id == Convert.ToInt32(cboLeadman.SelectedValue))
+                    {
+                        txtLeaderPost.Text = leader.ItsPost;
+                        break;
+                    }
+                }
+            }
         }
     }
 }

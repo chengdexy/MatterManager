@@ -326,6 +326,26 @@ namespace MatterManagerClasses
     class Leadman
     {
         /// <summary>
+        /// 数据库中对应id号
+        /// </summary>
+        private int _id;
+        /// <summary>
+        /// 数据库中对应id号
+        /// </summary>
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
+
+        /// <summary>
         /// 姓名
         /// </summary>
         private string _name;
@@ -365,6 +385,7 @@ namespace MatterManagerClasses
                 _itsPost = value;
             }
         }
+
 
 
 

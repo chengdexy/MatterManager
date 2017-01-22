@@ -64,6 +64,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRemind = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtLeaderPost = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -182,6 +184,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txtLeaderPost);
             this.groupBox1.Controls.Add(this.cboLeadman);
             this.groupBox1.Controls.Add(this.lblLeadman);
             this.groupBox1.Controls.Add(this.btnDelete);
@@ -204,6 +208,7 @@
             this.cboLeadman.Name = "cboLeadman";
             this.cboLeadman.Size = new System.Drawing.Size(102, 20);
             this.cboLeadman.TabIndex = 5;
+            this.cboLeadman.SelectedIndexChanged += new System.EventHandler(this.cboLeadman_SelectedIndexChanged);
             // 
             // lblLeadman
             // 
@@ -404,6 +409,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "待办事项清单：";
             // 
+            // txtLeaderPost
+            // 
+            this.txtLeaderPost.Location = new System.Drawing.Point(344, 25);
+            this.txtLeaderPost.Name = "txtLeaderPost";
+            this.txtLeaderPost.Size = new System.Drawing.Size(100, 21);
+            this.txtLeaderPost.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(261, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "职务：(选填)";
+            // 
             // frmAddMatterFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -472,5 +493,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtLeaderPost;
     }
 }
