@@ -100,5 +100,13 @@ namespace MatterManager
         {
             Environment.Exit(0);
         }
+
+        private void mnuMain_ItemAdded(object sender, ToolStripItemEventArgs e)
+        {
+            if(e.Item.Text.Length == 0)
+            {
+                e.Item.Visible = false;
+            }
+        }
     }
 }
