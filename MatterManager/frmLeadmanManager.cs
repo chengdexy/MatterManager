@@ -48,7 +48,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请输入牵头人姓名!");
+                MessageBox.Show("请输入牵头人姓名!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtName.Focus();
                 return;
             }
@@ -58,7 +58,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请输入牵头人职务!");
+                MessageBox.Show("请输入牵头人职务!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtPost.Focus();
                 return;
             }

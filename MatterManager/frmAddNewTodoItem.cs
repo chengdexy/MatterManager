@@ -179,7 +179,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请输入待办事项内容!");
+                MessageBox.Show("请输入待办事项内容!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtContent.Focus();
                 return;
             }
@@ -197,7 +197,7 @@ namespace MatterManager
                 }
                 else
                 {
-                    MessageBox.Show("请输入办理结果!");
+                    MessageBox.Show("请输入办理结果!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtDoneDescription.Focus();
                     return;
                 }
@@ -213,7 +213,7 @@ namespace MatterManager
                 }
                 else
                 {
-                    MessageBox.Show("请输入中止原因");
+                    MessageBox.Show("请输入中止原因", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtStopReason.Focus();
                     return;
                 }
@@ -223,7 +223,7 @@ namespace MatterManager
             else
             {
                 //全都没选中
-                MessageBox.Show("请至少选中一个办理状态选项!");
+                MessageBox.Show("请至少选中一个办理状态选项!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 rbDoing.Focus();
                 return;
             }

@@ -189,13 +189,13 @@ namespace MatterManager
                     }
                     else
                     {
-                        MessageBox.Show("你不能删除一个还未办结或中止的待办事项!");
+                        MessageBox.Show("你不能删除一个还未办结或中止的待办事项!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             else if (dgvTodoList.Rows.Count == 1)
             {
-                MessageBox.Show("删除失败,事务需要至少包含一条待办事项.");
+                MessageBox.Show("删除失败,事务需要至少包含一条待办事项.", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

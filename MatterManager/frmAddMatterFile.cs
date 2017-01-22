@@ -142,7 +142,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请输入公文标题!");
+                MessageBox.Show("请输入公文标题!","提示",MessageBoxButtons.OK,MessageBoxIcon.Information );
                 txtTitle.Focus();
                 return false;
             }
@@ -155,7 +155,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请输入督办频率!");
+                MessageBox.Show("请输入督办频率!","提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtRemind.Focus();
                 return false;
             }
@@ -173,7 +173,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("请选择或输入牵头人信息!");
+                MessageBox.Show("请选择或输入牵头人信息!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cboLeadman.Focus();
                 return false;
             }
@@ -191,7 +191,7 @@ namespace MatterManager
             }
             else
             {
-                MessageBox.Show("督办事务中应至少包含一条待办事项!");
+                MessageBox.Show("督办事务中应至少包含一条待办事项!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtNewItemContent.Focus();
                 return false;
             }

@@ -77,7 +77,7 @@ namespace MatterManager
                 }
                 else
                 {
-                    MessageBox.Show("请输入反馈内容!");
+                    MessageBox.Show("请输入反馈内容!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtResult.Focus();
                     return;
                 }
