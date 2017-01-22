@@ -147,6 +147,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "frmTodayToDo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "提醒";

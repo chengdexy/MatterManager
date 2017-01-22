@@ -455,6 +455,7 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "frmAddMatterFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "新建来自公文的督办事务";

@@ -62,6 +62,7 @@
             this.ClientSize = new System.Drawing.Size(826, 570);
             this.Controls.Add(this.rView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "frmReportPrint";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "打印预览";
