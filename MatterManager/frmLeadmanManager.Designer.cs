@@ -117,6 +117,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(386, 255);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
@@ -173,8 +174,10 @@
             // 
             // frmLeadmanManager
             // 
+            this.AcceptButton = this.btnAddNew;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(495, 374);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

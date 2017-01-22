@@ -58,6 +58,7 @@
             this.lblFileNumber = new System.Windows.Forms.Label();
             this.txtFileNumber = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnOpenFile = new System.Windows.Forms.Button();
             this.txtFileTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -66,7 +67,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRemind = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnOpenFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -306,6 +306,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(848, 398);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -346,6 +347,17 @@
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "来自公文的督办事务";
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Location = new System.Drawing.Point(182, 78);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFile.TabIndex = 22;
+            this.btnOpenFile.Text = "查看...";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Visible = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // txtFileTitle
             // 
@@ -427,21 +439,12 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "待办事项清单：";
             // 
-            // btnOpenFile
-            // 
-            this.btnOpenFile.Location = new System.Drawing.Point(182, 78);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenFile.TabIndex = 22;
-            this.btnOpenFile.Text = "查看...";
-            this.btnOpenFile.UseVisualStyleBackColor = true;
-            this.btnOpenFile.Visible = false;
-            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
-            // 
             // frmAddMatterFile
             // 
+            this.AcceptButton = this.btnSaveAndExit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(984, 439);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
