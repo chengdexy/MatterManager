@@ -57,6 +57,10 @@ namespace MatterManager
                 }
                 if (myti.State == MyStates.办理中)
                 {
+                    label1.Enabled = false;
+                    label2.Enabled = false;
+                    label3.Enabled = false;
+                    label4.Enabled = false;
                     rbDoing.Checked = true;
                     dtpDone.Enabled = false;
                     txtDoneDescription.Enabled = false;
@@ -65,6 +69,10 @@ namespace MatterManager
                 }
                 else if (myti.State == MyStates.已中止)
                 {
+                    label1.Enabled = false;
+                    label2.Enabled = false;
+                    label3.Enabled = true;
+                    label4.Enabled = true;
                     rbStop.Checked = true;
                     dtpDone.Enabled = false;
                     txtDoneDescription.Enabled = false;
@@ -73,6 +81,10 @@ namespace MatterManager
                 }
                 else
                 {
+                    label1.Enabled = true;
+                    label2.Enabled = true;
+                    label3.Enabled = false;
+                    label4.Enabled = false;
                     rbDone.Checked = true;
                     dtpDone.Enabled = true;
                     txtDoneDescription.Enabled = true;
@@ -96,6 +108,11 @@ namespace MatterManager
         {
             if (rbDoing.Checked == true)
             {
+                label1.Enabled = false;
+                label2.Enabled = false;
+                label3.Enabled = false;
+                label4.Enabled = false;
+
                 dtpDone.Enabled = false;
                 txtDoneDescription.Enabled = false;
                 dtpStop.Enabled = false;
@@ -107,6 +124,11 @@ namespace MatterManager
         {
             if (rbDone.Checked == true)
             {
+                label1.Enabled = true;
+                label2.Enabled = true;
+                label3.Enabled = false;
+                label4.Enabled = false;
+
                 dtpDone.Enabled = true;
                 txtDoneDescription.Enabled = true;
                 dtpStop.Enabled = false;
@@ -118,6 +140,11 @@ namespace MatterManager
         {
             if (rbStop.Checked == true)
             {
+                label1.Enabled = false;
+                label2.Enabled = false;
+                label3.Enabled = true;
+                label4.Enabled = true;
+
                 dtpDone.Enabled = false;
                 txtDoneDescription.Enabled = false;
                 dtpStop.Enabled = true;

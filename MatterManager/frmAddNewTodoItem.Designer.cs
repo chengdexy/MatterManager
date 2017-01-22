@@ -57,7 +57,7 @@
             this.groupBox1.Size = new System.Drawing.Size(415, 140);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "待办事项内容：";
+            this.groupBox1.Text = "待办事项内容(*)：";
             // 
             // txtContent
             // 
@@ -89,9 +89,9 @@
             // 
             // txtStopReason
             // 
-            this.txtStopReason.Location = new System.Drawing.Point(93, 199);
+            this.txtStopReason.Location = new System.Drawing.Point(110, 199);
             this.txtStopReason.Name = "txtStopReason";
-            this.txtStopReason.Size = new System.Drawing.Size(314, 21);
+            this.txtStopReason.Size = new System.Drawing.Size(297, 21);
             this.txtStopReason.TabIndex = 10;
             // 
             // label3
@@ -99,9 +99,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(22, 202);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(83, 12);
             this.label3.TabIndex = 9;
-            this.label3.Text = "中止原因：";
+            this.label3.Text = "中止原因(*)：";
             // 
             // label4
             // 
@@ -114,16 +114,16 @@
             // 
             // dtpStop
             // 
-            this.dtpStop.Location = new System.Drawing.Point(93, 165);
+            this.dtpStop.Location = new System.Drawing.Point(110, 165);
             this.dtpStop.Name = "dtpStop";
             this.dtpStop.Size = new System.Drawing.Size(200, 21);
             this.dtpStop.TabIndex = 7;
             // 
             // txtDoneDescription
             // 
-            this.txtDoneDescription.Location = new System.Drawing.Point(93, 110);
+            this.txtDoneDescription.Location = new System.Drawing.Point(110, 110);
             this.txtDoneDescription.Name = "txtDoneDescription";
-            this.txtDoneDescription.Size = new System.Drawing.Size(314, 21);
+            this.txtDoneDescription.Size = new System.Drawing.Size(297, 21);
             this.txtDoneDescription.TabIndex = 6;
             // 
             // label2
@@ -131,9 +131,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(22, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(83, 12);
             this.label2.TabIndex = 5;
-            this.label2.Text = "办理结果：";
+            this.label2.Text = "办理结果(*)：";
             // 
             // label1
             // 
@@ -146,7 +146,7 @@
             // 
             // dtpDone
             // 
-            this.dtpDone.Location = new System.Drawing.Point(93, 76);
+            this.dtpDone.Location = new System.Drawing.Point(110, 76);
             this.dtpDone.Name = "dtpDone";
             this.dtpDone.Size = new System.Drawing.Size(200, 21);
             this.dtpDone.TabIndex = 3;

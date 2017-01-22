@@ -82,62 +82,62 @@
             // 
             this.今日督办toolStripMenuItem1.Name = "今日督办toolStripMenuItem1";
             this.今日督办toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.今日督办toolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
-            this.今日督办toolStripMenuItem1.Text = "今日督办";
+            this.今日督办toolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.今日督办toolStripMenuItem1.Text = "今日督办...";
             this.今日督办toolStripMenuItem1.Click += new System.EventHandler(this.今日督办toolStripMenuItem1_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
             // 
             // 新增事务ToolStripMenuItem
             // 
             this.新增事务ToolStripMenuItem.Name = "新增事务ToolStripMenuItem";
             this.新增事务ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.新增事务ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.新增事务ToolStripMenuItem.Text = "新增事务";
+            this.新增事务ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.新增事务ToolStripMenuItem.Text = "新增事务...";
             this.新增事务ToolStripMenuItem.Click += new System.EventHandler(this.新增事务ToolStripMenuItem_Click);
             // 
             // 事务管理ToolStripMenuItem1
             // 
             this.事务管理ToolStripMenuItem1.Name = "事务管理ToolStripMenuItem1";
             this.事务管理ToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.事务管理ToolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
-            this.事务管理ToolStripMenuItem1.Text = "事务管理";
+            this.事务管理ToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.事务管理ToolStripMenuItem1.Text = "事务管理...";
             this.事务管理ToolStripMenuItem1.Click += new System.EventHandler(this.事务管理ToolStripMenuItem1_Click);
             // 
             // 查询打印toolStripMenuItem1
             // 
             this.查询打印toolStripMenuItem1.Name = "查询打印toolStripMenuItem1";
             this.查询打印toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.查询打印toolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
-            this.查询打印toolStripMenuItem1.Text = "查询/打印";
+            this.查询打印toolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.查询打印toolStripMenuItem1.Text = "查询/打印...";
             this.查询打印toolStripMenuItem1.Click += new System.EventHandler(this.查询打印toolStripMenuItem1_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(185, 6);
             // 
             // 牵头人toolStripMenuItem1
             // 
             this.牵头人toolStripMenuItem1.Name = "牵头人toolStripMenuItem1";
             this.牵头人toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.牵头人toolStripMenuItem1.Size = new System.Drawing.Size(179, 22);
-            this.牵头人toolStripMenuItem1.Text = "牵头人管理";
+            this.牵头人toolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.牵头人toolStripMenuItem1.Text = "牵头人管理...";
             this.牵头人toolStripMenuItem1.Click += new System.EventHandler(this.牵头人toolStripMenuItem1_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(185, 6);
             // 
             // 退出程序ToolStripMenuItem
             // 
             this.退出程序ToolStripMenuItem.Name = "退出程序ToolStripMenuItem";
             this.退出程序ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.退出程序ToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.退出程序ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.退出程序ToolStripMenuItem.Text = "退出程序";
             this.退出程序ToolStripMenuItem.Click += new System.EventHandler(this.退出程序ToolStripMenuItem_Click);
             // 
@@ -177,7 +177,7 @@
             // 
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
             this.关于ToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.关于ToolStripMenuItem.Text = "关于(&A)";
+            this.关于ToolStripMenuItem.Text = "关于(&A)...";
             this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
             // sfdBackup

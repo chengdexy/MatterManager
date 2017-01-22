@@ -85,7 +85,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(119, 21);
+            this.txtTitle.Location = new System.Drawing.Point(129, 21);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(252, 21);
             this.txtTitle.TabIndex = 2;
@@ -96,13 +96,13 @@
             this.lblBeginDate.AutoSize = true;
             this.lblBeginDate.Location = new System.Drawing.Point(24, 48);
             this.lblBeginDate.Name = "lblBeginDate";
-            this.lblBeginDate.Size = new System.Drawing.Size(89, 12);
+            this.lblBeginDate.Size = new System.Drawing.Size(107, 12);
             this.lblBeginDate.TabIndex = 3;
-            this.lblBeginDate.Text = "事务发生日期：";
+            this.lblBeginDate.Text = "事务发生日期(*)：";
             // 
             // dtpBeginDate
             // 
-            this.dtpBeginDate.Location = new System.Drawing.Point(119, 48);
+            this.dtpBeginDate.Location = new System.Drawing.Point(129, 48);
             this.dtpBeginDate.Name = "dtpBeginDate";
             this.dtpBeginDate.Size = new System.Drawing.Size(250, 21);
             this.dtpBeginDate.TabIndex = 4;
@@ -138,7 +138,7 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(12, 75);
+            this.lblDescription.Location = new System.Drawing.Point(24, 75);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(101, 12);
             this.lblDescription.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(119, 75);
+            this.txtDescription.Location = new System.Drawing.Point(129, 75);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -205,13 +205,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(261, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 7;
-            this.label4.Text = "职务：(选填)";
+            this.label4.Text = "职务：";
             // 
             // txtLeaderPost
             // 
-            this.txtLeaderPost.Location = new System.Drawing.Point(344, 25);
+            this.txtLeaderPost.Location = new System.Drawing.Point(301, 25);
             this.txtLeaderPost.Name = "txtLeaderPost";
             this.txtLeaderPost.Size = new System.Drawing.Size(100, 21);
             this.txtLeaderPost.TabIndex = 6;
@@ -221,7 +221,7 @@
             this.cboLeadman.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboLeadman.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboLeadman.FormattingEnabled = true;
-            this.cboLeadman.Location = new System.Drawing.Point(125, 26);
+            this.cboLeadman.Location = new System.Drawing.Point(135, 26);
             this.cboLeadman.Name = "cboLeadman";
             this.cboLeadman.Size = new System.Drawing.Size(102, 20);
             this.cboLeadman.TabIndex = 5;
@@ -232,9 +232,9 @@
             this.lblLeadman.AutoSize = true;
             this.lblLeadman.Location = new System.Drawing.Point(6, 29);
             this.lblLeadman.Name = "lblLeadman";
-            this.lblLeadman.Size = new System.Drawing.Size(113, 12);
+            this.lblLeadman.Size = new System.Drawing.Size(131, 12);
             this.lblLeadman.TabIndex = 4;
-            this.lblLeadman.Text = "选择或输入牵头人：";
+            this.lblLeadman.Text = "选择或输入牵头人(*)：";
             // 
             // btnDelete
             // 
@@ -372,9 +372,9 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Location = new System.Drawing.Point(24, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(89, 12);
+            this.lblTitle.Size = new System.Drawing.Size(107, 12);
             this.lblTitle.TabIndex = 22;
-            this.lblTitle.Text = "督办事务标题：";
+            this.lblTitle.Text = "督办事务标题(*)：";
             // 
             // groupBox3
             // 
@@ -398,7 +398,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(222, 119);
+            this.label3.Location = new System.Drawing.Point(232, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 25;
@@ -407,7 +407,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(117, 119);
+            this.label2.Location = new System.Drawing.Point(127, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(17, 12);
             this.label2.TabIndex = 24;
@@ -418,13 +418,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(48, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(83, 12);
             this.label1.TabIndex = 23;
-            this.label1.Text = "督办频率：";
+            this.label1.Text = "督办频率(*)：";
             // 
             // txtRemind
             // 
-            this.txtRemind.Location = new System.Drawing.Point(140, 115);
+            this.txtRemind.Location = new System.Drawing.Point(150, 115);
             this.txtRemind.Name = "txtRemind";
             this.txtRemind.Size = new System.Drawing.Size(76, 21);
             this.txtRemind.TabIndex = 7;
@@ -437,7 +437,7 @@
             this.groupBox4.Size = new System.Drawing.Size(468, 206);
             this.groupBox4.TabIndex = 24;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "待办事项清单：";
+            this.groupBox4.Text = "待办事项清单(*)：";
             // 
             // frmAddMatterFile
             // 
