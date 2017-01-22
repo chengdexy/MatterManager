@@ -58,6 +58,7 @@
             this.反馈内容 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.history_mfNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -126,7 +127,7 @@
             this.groupBox1.Controls.Add(this.dgvMatterList);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(802, 180);
+            this.groupBox1.Size = new System.Drawing.Size(765, 180);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "督办事务列表：";
@@ -169,7 +170,7 @@
             this.groupBox2.Controls.Add(this.dgvTodoList);
             this.groupBox2.Location = new System.Drawing.Point(12, 198);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(802, 180);
+            this.groupBox2.Size = new System.Drawing.Size(765, 180);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "待办事项详情：";
@@ -263,7 +264,7 @@
             this.groupBox3.Controls.Add(this.dgvHistoryList);
             this.groupBox3.Location = new System.Drawing.Point(12, 384);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(802, 180);
+            this.groupBox3.Size = new System.Drawing.Size(765, 180);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "督办反馈记录：";
@@ -340,19 +341,31 @@
             this.hId.ReadOnly = true;
             this.hId.Visible = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Location = new System.Drawing.Point(684, 570);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "关闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            // 
             // frmMatterManager
             // 
-            this.AcceptButton = this.btnAddHistory;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 585);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(791, 604);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmMatterManager";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "督办事务管理：";
             this.Load += new System.EventHandler(this.frmMatterManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatterList)).EndInit();
@@ -396,5 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn mId;
         private System.Windows.Forms.Button btnEditHistory;
+        private System.Windows.Forms.Button btnClose;
     }
 }

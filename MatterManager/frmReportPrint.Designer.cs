@@ -64,7 +64,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmReportPrint";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "打印预览";
             this.Load += new System.EventHandler(this.frmReportPrint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsReport)).EndInit();

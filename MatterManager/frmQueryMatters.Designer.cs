@@ -314,7 +314,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmQueryMatters";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "查询/打印";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQueryMatters_FormClosing);
             this.Load += new System.EventHandler(this.frmQueryMatters_Load);

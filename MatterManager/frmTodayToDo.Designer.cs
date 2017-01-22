@@ -149,7 +149,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmTodayToDo";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "提醒";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTodayToDo_FormClosing);
             this.Load += new System.EventHandler(this.frmTodayToDo_Load);

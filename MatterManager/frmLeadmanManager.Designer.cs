@@ -184,7 +184,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmLeadmanManager";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "牵头人管理";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLeadmanManager_FormClosed);
             this.Load += new System.EventHandler(this.frmLeadmanManager_Load);

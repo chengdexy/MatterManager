@@ -457,7 +457,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmAddMatterFile";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "新建来自公文的督办事务";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddMatterFile_FormClosed);
             this.Load += new System.EventHandler(this.frmAddMatterFile_Load);
