@@ -57,6 +57,10 @@ namespace MatterManager
                 }
                 btnAddToList.Enabled = false;
                 btnDelete.Enabled = false;
+                if (!string.IsNullOrEmpty(lblPathOfUploaded.Text))
+                {
+                    btnOpenFile.Visible = true;
+                }
             }
             else
             {
@@ -66,7 +70,7 @@ namespace MatterManager
                 //清除data grid view控件中的空行
                 dgvTodoItemList.Rows.Clear();
             }
-            
+
 
         }
 
@@ -257,6 +261,14 @@ namespace MatterManager
                     }
                 }
             }
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(lblPathOfUploaded.Text))
+            {
+                System.Diagnostics.Process.Start(lblPathOfUploaded.Text);
+            } 
         }
     }
 }

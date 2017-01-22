@@ -43,6 +43,8 @@
             this.cNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtLeaderPost = new System.Windows.Forms.TextBox();
             this.cboLeadman = new System.Windows.Forms.ComboBox();
             this.lblLeadman = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -64,8 +66,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRemind = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtLeaderPost = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btnOpenFile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodoItemList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -118,15 +119,15 @@
             // lblPathOfUploaded
             // 
             this.lblPathOfUploaded.AutoSize = true;
-            this.lblPathOfUploaded.Location = new System.Drawing.Point(101, 81);
+            this.lblPathOfUploaded.Location = new System.Drawing.Point(99, 115);
             this.lblPathOfUploaded.Name = "lblPathOfUploaded";
             this.lblPathOfUploaded.Size = new System.Drawing.Size(173, 12);
             this.lblPathOfUploaded.TabIndex = 6;
-            this.lblPathOfUploaded.Text = "请点击右侧按钮上传文件电子版";
+            this.lblPathOfUploaded.Text = "请点击上方按钮上传文件电子版";
             // 
             // btnUploadFile
             // 
-            this.btnUploadFile.Location = new System.Drawing.Point(344, 76);
+            this.btnUploadFile.Location = new System.Drawing.Point(101, 78);
             this.btnUploadFile.Name = "btnUploadFile";
             this.btnUploadFile.Size = new System.Drawing.Size(75, 23);
             this.btnUploadFile.TabIndex = 7;
@@ -198,6 +199,22 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "新增待办事项：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(261, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "职务：(选填)";
+            // 
+            // txtLeaderPost
+            // 
+            this.txtLeaderPost.Location = new System.Drawing.Point(344, 25);
+            this.txtLeaderPost.Name = "txtLeaderPost";
+            this.txtLeaderPost.Size = new System.Drawing.Size(100, 21);
+            this.txtLeaderPost.TabIndex = 6;
             // 
             // cboLeadman
             // 
@@ -315,6 +332,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnOpenFile);
             this.groupBox2.Controls.Add(this.txtFileTitle);
             this.groupBox2.Controls.Add(this.lblPathOfUploaded);
             this.groupBox2.Controls.Add(this.txtFileNumber);
@@ -409,21 +427,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "待办事项清单：";
             // 
-            // txtLeaderPost
+            // btnOpenFile
             // 
-            this.txtLeaderPost.Location = new System.Drawing.Point(344, 25);
-            this.txtLeaderPost.Name = "txtLeaderPost";
-            this.txtLeaderPost.Size = new System.Drawing.Size(100, 21);
-            this.txtLeaderPost.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(261, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "职务：(选填)";
+            this.btnOpenFile.Location = new System.Drawing.Point(182, 78);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFile.TabIndex = 22;
+            this.btnOpenFile.Text = "查看...";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Visible = false;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // frmAddMatterFile
             // 
@@ -495,5 +508,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtLeaderPost;
+        private System.Windows.Forms.Button btnOpenFile;
     }
 }
