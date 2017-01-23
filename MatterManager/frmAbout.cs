@@ -28,9 +28,7 @@ namespace MatterManager
             catch
             {
             }
-            string z = ver.Split('.')[0];
-            string c = ver.Split('.')[1];
-            lblVer.Text = string.Format("v{0}.{1}", z, c);
+            lblVer.Text = string.Format("v{0}",ver);
 
             //copyright
             DateTime last = System.IO.File.GetLastWriteTime("MatterManager.exe");

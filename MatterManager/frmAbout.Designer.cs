@@ -60,16 +60,16 @@
             // lblVer
             // 
             this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(151, 92);
+            this.lblVer.Location = new System.Drawing.Point(138, 89);
             this.lblVer.Name = "lblVer";
-            this.lblVer.Size = new System.Drawing.Size(29, 12);
+            this.lblVer.Size = new System.Drawing.Size(53, 12);
             this.lblVer.TabIndex = 2;
-            this.lblVer.Text = "v1.0";
+            this.lblVer.Text = "v1.0.0.0";
             // 
             // lblLast
             // 
             this.lblLast.AutoSize = true;
-            this.lblLast.Location = new System.Drawing.Point(186, 92);
+            this.lblLast.Location = new System.Drawing.Point(213, 89);
             this.lblLast.Name = "lblLast";
             this.lblLast.Size = new System.Drawing.Size(59, 12);
             this.lblLast.TabIndex = 3;
