@@ -14,10 +14,10 @@ namespace MatterManager
 {
     public partial class frmAddNewTodoItem : Form
     {
-        private static int? mfId = null;
-        private static TodoItem myti = null;
-        private static bool isEditMode = false;
-        private static int? tId = null;
+        private  int? mfId = null;
+        private  TodoItem myti = null;
+        private  bool isEditMode = false;
+        private  int? tId = null;
         /// <summary>
         /// 新增模式构造
         /// </summary>
