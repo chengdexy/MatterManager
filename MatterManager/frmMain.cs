@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DatabaseHelpers;
 using System.Configuration;
+using System.Collections.Generic;
 
 namespace MatterManager
 {
@@ -150,6 +151,18 @@ namespace MatterManager
             this.Hide();
             this.ShowInTaskbar = false;
             nfIcon.Visible = true;
+            showBalloon();
+            timerShowTip.Enabled = true;
+        }
+
+        private void showBalloon()
+        {
+            List<MatterManagerClasses.matterFiles> list = MatterHelpers.MatterHelper.getAllNeedAlertMatters();
+            int count = list.Count;
+            nfIcon.BalloonTipTitle = "提示";
+            nfIcon.BalloonTipIcon = ToolTipIcon.Info;
+            nfIcon.BalloonTipText = string.Format("您今日有 {0} 件待办事项.", count);
+            nfIcon.ShowBalloonTip(10000);
         }
 
         private void mnuMain_ItemAdded(object sender, ToolStripItemEventArgs e)
@@ -282,6 +295,7 @@ namespace MatterManager
             this.WindowState = FormWindowState.Normal;
             this.ShowInTaskbar = true;
             nfIcon.Visible = false;
+            timerShowTip.Enabled = false;
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -302,6 +316,11 @@ namespace MatterManager
         {
             frmConfiguration f = new frmConfiguration();
             f.ShowDialog(this);
+        }
+
+        private void timerShowTip_Tick(object sender, EventArgs e)
+        {
+            showBalloon();
         }
     }
 }
