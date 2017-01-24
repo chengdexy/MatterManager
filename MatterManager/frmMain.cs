@@ -297,5 +297,11 @@ namespace MatterManager
             this.ShowInTaskbar = true;
             nfIcon.Visible = false;
         }
+
+        private void 选项ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConfiguration f = new frmConfiguration();
+            f.ShowDialog(this);
+        }
     }
 }
