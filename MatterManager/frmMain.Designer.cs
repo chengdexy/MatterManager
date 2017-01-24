@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.tsmSystem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,8 +61,15 @@
             this.tsbRestoreDB = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbAbout = new System.Windows.Forms.ToolStripButton();
+            this.nfIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.mnuPopup = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.显示主窗体ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出程序ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.mnuPopup.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuMain
@@ -351,6 +359,52 @@
             this.tsbAbout.Text = "关于";
             this.tsbAbout.Click += new System.EventHandler(this.tsbAbout_Click);
             // 
+            // nfIcon
+            // 
+            this.nfIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.nfIcon.ContextMenuStrip = this.mnuPopup;
+            this.nfIcon.Text = "MatterManager";
+            this.nfIcon.Visible = true;
+            this.nfIcon.DoubleClick += new System.EventHandler(this.nfIcon_DoubleClick);
+            // 
+            // mnuPopup
+            // 
+            this.mnuPopup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.显示主窗体ToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.toolStripMenuItem1});
+            this.mnuPopup.Name = "mnuPopup";
+            this.mnuPopup.Size = new System.Drawing.Size(168, 86);
+            // 
+            // 显示主窗体ToolStripMenuItem
+            // 
+            this.显示主窗体ToolStripMenuItem.Image = global::MatterManager.Properties.Resources.time_small;
+            this.显示主窗体ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.显示主窗体ToolStripMenuItem.Name = "显示主窗体ToolStripMenuItem";
+            this.显示主窗体ToolStripMenuItem.Size = new System.Drawing.Size(168, 38);
+            this.显示主窗体ToolStripMenuItem.Text = "显示主窗体(&S)";
+            this.显示主窗体ToolStripMenuItem.Click += new System.EventHandler(this.显示主窗体ToolStripMenuItem_Click);
+            // 
+            // 退出程序ToolStripMenuItem1
+            // 
+            this.退出程序ToolStripMenuItem1.Name = "退出程序ToolStripMenuItem1";
+            this.退出程序ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.退出程序ToolStripMenuItem1.Text = "退出程序(&X)";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::MatterManager.Properties.Resources.exit_small;
+            this.toolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(168, 38);
+            this.toolStripMenuItem1.Text = "退出程序(&X)";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(165, 6);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -370,6 +424,7 @@
             this.mnuMain.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.mnuPopup.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,6 +463,12 @@
         private System.Windows.Forms.ToolStripButton tsbRestoreDB;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton tsbAbout;
+        private System.Windows.Forms.NotifyIcon nfIcon;
+        private System.Windows.Forms.ContextMenuStrip mnuPopup;
+        private System.Windows.Forms.ToolStripMenuItem 显示主窗体ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 退出程序ToolStripMenuItem1;
     }
 }
 

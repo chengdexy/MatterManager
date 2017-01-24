@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using DatabaseHelpers;
+using System.Configuration;
 
 namespace MatterManager
 {
@@ -13,7 +14,8 @@ namespace MatterManager
 
         private void 退出程序ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            nfIcon.Visible = false;
+            Environment.Exit(0);
         }
 
         private void 牵头人toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -124,7 +126,30 @@ namespace MatterManager
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(0);
+            frmMessage f = new frmMessage("选择要执行的操作");
+            DialogResult dResult = f.ShowDialog(this);
+            if (dResult == DialogResult.OK)
+            {
+                nfIcon.Visible = false;
+                Environment.Exit(0);
+            }
+            else if (dResult == DialogResult.Abort)
+            {
+                minimizeForm();
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void minimizeForm()
+        {
+            nfIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon("icon.ico");
+            this.Hide();
+            this.ShowInTaskbar = false;
+            nfIcon.Visible = true;
         }
 
         private void mnuMain_ItemAdded(object sender, ToolStripItemEventArgs e)
@@ -249,6 +274,28 @@ namespace MatterManager
             {
                 return true;
             }
+        }
+
+        private void nfIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            nfIcon.Visible = false;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            nfIcon.Visible = false;
+            Environment.Exit(0);
+        }
+
+        private void 显示主窗体ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            nfIcon.Visible = false;
         }
     }
 }

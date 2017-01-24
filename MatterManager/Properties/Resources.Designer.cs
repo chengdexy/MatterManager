@@ -153,6 +153,16 @@ namespace MatterManager.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap questionmark {
+            get {
+                object obj = ResourceManager.GetObject("questionmark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap time_small {
             get {
                 object obj = ResourceManager.GetObject("time_small", resourceCulture);
