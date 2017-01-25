@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using MatterManager.Properties;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,15 +25,15 @@ namespace MatterManager
         {
             if (rbExit.Checked)
             {
-                ConfigurationManager.AppSettings["miniWhenClose"] = "false";
+                Settings.Default.miniWhenClose = false;
             }
             else if (rbMini.Checked)
             {
-                ConfigurationManager.AppSettings["miniWhenClose"] = "true";
+                Settings.Default.miniWhenClose = true;
             }
             else
             {
-                ConfigurationManager.AppSettings["showDialogWhenClose"] = "true";
+                Settings.Default.showDialogWhenClose = true;
             }
 
             if (chkAutoRun.Checked)
@@ -41,13 +42,13 @@ namespace MatterManager
             }
             else
             {
-                if (Convert.ToBoolean(ConfigurationManager.AppSettings["registed"]))
+                if (Settings.Default.registed)
                 {
                     clearAutoRunRegist();
                 }
             }
 
-            ConfigurationManager.AppSettings["autoRun"] = chkAutoRun.Checked.ToString();
+            Settings.Default.autoRun = chkAutoRun.Checked;
 
             this.Close();
             this.Dispose();
@@ -63,7 +64,7 @@ namespace MatterManager
             shortcutPath = Path.Combine(shortcutPath, productName) + ".appref - ms";
             regkey.DeleteValue("MatterManager", false);
             regkey.Close();
-            ConfigurationManager.AppSettings["registed"] = "false";
+            Settings.Default.registed = false;
         }
 
         private void setAutoRunRegist()
@@ -77,7 +78,7 @@ namespace MatterManager
             regkey.DeleteSubKey("MatterManager", false);//delete old key if exists
             regkey.SetValue("MatterManager", shortcutPath);
             regkey.Close();
-            ConfigurationManager.AppSettings["registed"] = "true";
+            Settings.Default.registed = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,9 +89,9 @@ namespace MatterManager
 
         private void frmConfiguration_Load(object sender, EventArgs e)
         {
-            bool mini = Convert.ToBoolean(ConfigurationManager.AppSettings["miniWhenClose"]);
-            bool dlg = Convert.ToBoolean(ConfigurationManager.AppSettings["showDialogWhenClose"]);
-            bool auto = Convert.ToBoolean(ConfigurationManager.AppSettings["autoRun"]);
+            bool mini = Settings.Default.miniWhenClose;
+            bool dlg = Settings.Default.showDialogWhenClose;
+            bool auto = Settings.Default.autoRun;
             if (mini)
             {
                 rbMini.Checked = true;

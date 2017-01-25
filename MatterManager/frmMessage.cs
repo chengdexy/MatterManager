@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MatterManager.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -23,9 +24,9 @@ namespace MatterManager
 
         private void frmMessage_Load(object sender, EventArgs e)
         {
-            if (!Convert.ToBoolean(ConfigurationManager.AppSettings["showDialogWhenClose"]))
+            if (!Settings.Default.showDialogWhenClose)
             {
-                if (Convert.ToBoolean(ConfigurationManager.AppSettings["miniWhenClose"]))
+                if (Settings.Default.miniWhenClose)
                 {
                     this.DialogResult = DialogResult.Abort;
                 }
@@ -73,14 +74,14 @@ namespace MatterManager
 
         private void saveChooseToConfig()
         {
-            ConfigurationManager.AppSettings["showDialogWhenClose"] = "false";
+            Settings.Default.showDialogWhenClose = false;
             if (this.DialogResult == DialogResult.Abort)
             {
-                ConfigurationManager.AppSettings["miniWhenClose"] = "true";
+                Settings.Default.miniWhenClose = true;
             }
             else
             {
-                ConfigurationManager.AppSettings["miniWhenClose"] = "false";
+                Settings.Default.miniWhenClose = false;
             }
         }
 
