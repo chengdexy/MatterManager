@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConfigurationHelpers;
 
 namespace MatterManager
 {
@@ -25,15 +26,15 @@ namespace MatterManager
         {
             if (rbExit.Checked)
             {
-                Settings.Default.miniWhenClose = false;
+                ConfigurationHelper.UpdateKey("miniWhenClose", "false");
             }
             else if (rbMini.Checked)
             {
-                Settings.Default.miniWhenClose = true;
+                ConfigurationHelper.UpdateKey("miniWhenClose", "true");
             }
             else
             {
-                Settings.Default.showDialogWhenClose = true;
+                ConfigurationHelper.UpdateKey("showDialogWhenClose", "true");
             }
 
             if (chkAutoRun.Checked)
@@ -42,13 +43,13 @@ namespace MatterManager
             }
             else
             {
-                if (Settings.Default.registed)
+                if (Convert.ToBoolean(ConfigurationHelper.GetValue("registed")))
                 {
                     clearAutoRunRegist();
                 }
             }
 
-            Settings.Default.autoRun = chkAutoRun.Checked;
+            ConfigurationHelper.UpdateKey("autoRun", chkAutoRun.Checked.ToString().ToLower());
 
             this.Close();
             this.Dispose();
@@ -64,7 +65,7 @@ namespace MatterManager
             shortcutPath = Path.Combine(shortcutPath, productName) + ".appref - ms";
             regkey.DeleteValue("MatterManager", false);
             regkey.Close();
-            Settings.Default.registed = false;
+            ConfigurationHelper.UpdateKey("registed", "false");
         }
 
         private void setAutoRunRegist()
@@ -78,7 +79,7 @@ namespace MatterManager
             regkey.DeleteSubKey("MatterManager", false);//delete old key if exists
             regkey.SetValue("MatterManager", shortcutPath);
             regkey.Close();
-            Settings.Default.registed = true;
+            ConfigurationHelper.UpdateKey("registed", "true");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -89,9 +90,9 @@ namespace MatterManager
 
         private void frmConfiguration_Load(object sender, EventArgs e)
         {
-            bool mini = Settings.Default.miniWhenClose;
-            bool dlg = Settings.Default.showDialogWhenClose;
-            bool auto = Settings.Default.autoRun;
+            bool mini = Convert.ToBoolean(ConfigurationHelper.GetValue("miniWhenClose"));
+            bool dlg = Convert.ToBoolean(ConfigurationHelper.GetValue("showDialogWhenClose"));
+            bool auto = Convert.ToBoolean(ConfigurationHelper.GetValue("autoRun"));
             if (mini)
             {
                 rbMini.Checked = true;

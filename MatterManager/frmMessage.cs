@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConfigurationHelpers;
 
 namespace MatterManager
 {
@@ -24,9 +25,9 @@ namespace MatterManager
 
         private void frmMessage_Load(object sender, EventArgs e)
         {
-            if (!Settings.Default.showDialogWhenClose)
+            if (!Convert.ToBoolean(ConfigurationHelper.GetValue("showDialogWhenClose")))
             {
-                if (Settings.Default.miniWhenClose)
+                if (Convert.ToBoolean(ConfigurationHelper.GetValue("miniWhenClose")))
                 {
                     this.DialogResult = DialogResult.Abort;
                 }
@@ -74,14 +75,14 @@ namespace MatterManager
 
         private void saveChooseToConfig()
         {
-            Settings.Default.showDialogWhenClose = false;
+            ConfigurationHelper.UpdateKey("showDialogWhenClose", "false");
             if (this.DialogResult == DialogResult.Abort)
             {
-                Settings.Default.miniWhenClose = true;
+                ConfigurationHelper.UpdateKey("miniWhenClose", "true");
             }
             else
             {
-                Settings.Default.miniWhenClose = false;
+                ConfigurationHelper.UpdateKey("miniWhenClose", "false");
             }
         }
 
